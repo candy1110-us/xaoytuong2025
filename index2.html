@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Course Through Stories - Articles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'HmtRegular';
+      src: url('HmtRegular-WRrv.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ecebe4;
+      background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="1" fill="%23d2d1c7"/></svg>');
+      background-size: 28px 28px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      background: #4db8d8;
+      width: 50vh;
+      height: 50vh;
+      top: 20%;
+      left: -10vh;
+      animation: float 6s ease-in-out infinite;
+    }
+    body::after {
+      background: #ff8c42;
+      width: 150px;
+      height: 150px;
+      bottom: 15%;
+      right: 8%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .site-title {
+      position: fixed;
+      top: 85px;
+      left: 20px;
+      z-index: 100;
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      width: 60px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .header-section {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .header-content {
+      flex: 1;
+    }
+    .header-image {
+      flex: 0 0 50%;
+      width: 50%;
+      height: auto;
+    }
+    h1 {
+      text-align: left;
+      margin-bottom: 24px;
+      color: #222;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+    .title-regular {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-weight: 600;
+      color: #4db8d8;
+      font-size: 4rem;
+    }
+    .title-highlight {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-weight: 700;
+      color: #e67326;
+      font-size: 5rem;
+    }
+    .subtitle {
+      text-align: center;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1.3rem;
+      /* font-weight: 300; */
+      color: #555555;
+      margin: 6px 0 48px 0;
+      line-height: 1.5;
+    }
+    .header-section .subtitle {
+      text-align: left;
+      margin: 6px 0 0 0;
+    }
+    h2 {
+      text-align: left;
+      margin-bottom: 24px;
+      color: #222;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 1px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 14px 32px 14px 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 24px 20px;
+      transition: transform 0.18s cubic-bezier(.22,1,.36,1), box-shadow 0.18s cubic-bezier(.22,1,.36,1), background 0.15s;
+      text-decoration: none;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 180px;
+      position: relative;
+    }
+    .card:hover {
+      transform: scale(1.045) translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      background-color: #ffe066;
+      color: #0070f3;
+    }
+    .card.locked {
+      opacity: 0.6;
+      pointer-events: none;
+      position: relative;
+      cursor: not-allowed;
+    }
+    .card.locked::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 35px;
+      height: 35px;
+      background-image: url('images2/lock.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.7;
+      z-index: 10;
+    }
+    .card.locked:hover {
+      transform: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      background-color: #fffefb;
+      color: #222;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 12px;
+      font-family: 'BeVietnamPro', 'Inter', sans-serif;
+      color: #555555;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 1rem;
+      color: #555;
+      flex: 1;
+    }
+    .concepts-section {
+      margin: 48px 0;
+    }
+    .concepts-section h1 {
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 24px;
+    }
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: 24px;
+      max-height: 510px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 8px;
+      padding-top: 20px;
+    }
+    .concepts-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+    .concepts-grid::-webkit-scrollbar-track {
+      background: #ecebe4;
+      border-radius: 4px;
+    }
+    .concepts-grid::-webkit-scrollbar-thumb {
+      background: #4db8d8;
+      border-radius: 4px;
+    }
+    .concepts-grid::-webkit-scrollbar-thumb:hover {
+      background: #3ca5c3;
+    }
+    .concept-item {
+      perspective: 1000px;
+      height: 200px;
+      cursor: pointer;
+      position: relative;
+    }
+    .concept-item.locked {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+    .concept-item.locked .concept-term {
+      filter: blur(4px);
+    }
+    .concept-item.locked::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 35px;
+      height: 35px;
+      background-image: url('images2/lock.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.7;
+      z-index: 10;
+    }
+    .concept-number {
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      color: #4db8d8;
+      text-shadow: 2px 2px 0px white;
+      z-index: 10;
+    }
+    .concept-item:hover .flashcard-inner {
+      transform: scale(1.045) translateY(-4px);
+    }
+    .concept-item:hover .flashcard-front,
+    .concept-item:hover .flashcard-back {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s, box-shadow 0.18s cubic-bezier(.22,1,.36,1);
+      transform-style: preserve-3d;
+    }
+    .concept-item.flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 14px 32px 14px 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #222;
+      transition: box-shadow 0.18s cubic-bezier(.22,1,.36,1);
+      box-sizing: border-box;
+    }
+    .flashcard-front {
+      background-color: #fffefb;
+    }
+    .flashcard-back {
+      background-color: #ffe066;
+      transform: rotateY(180deg);
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+    .concept-term {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #555555;
+      font-family: 'BeVietnamPro', 'Inter', sans-serif;
+      text-align: center;
+      line-height: 1.4;
+      padding: 0 8px;
+    }
+    .flashcard-hint {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #888;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-style: italic;
+    }
+    .concept-definition {
+      font-size: 0.95rem;
+      color: #222;
+      line-height: 1.5;
+      font-family: 'BeVietnamPro', sans-serif;
+      margin-bottom: 14px;
+      text-align: left;
+    }
+    .concept-example {
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.4;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-style: normal;
+      text-align: left;
+      border-top: 2px solid rgba(0,0,0,0.1);
+      padding-top: 10px;
+    }
+    .concept-example::before {
+      content: "Ví dụ: ";
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 2.4rem;
+      }
+      .title-regular {
+        font-size: 2.5rem;
+      }
+      .title-highlight {
+        font-size: 3rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .header-section {
+        flex-direction: column;
+      }
+      .header-image {
+        width: 100%;
+        max-width: 300px;
+        order: -1;
+      }
+      .header-section h1,
+      .header-section .subtitle {
+        text-align: center;
+      }
+      .concepts-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .concept-item {
+        height: 280px;
+      }
+      .concept-term {
+        font-size: 1.1rem;
+      }
+      .concept-definition {
+        font-size: 0.9rem;
+      }
+      .concept-example {
+        font-size: 0.85rem;
+      }
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 14px 32px 14px 14px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      padding: 24px 40px 40px 40px;
+      max-width: 900px;
+      width: 90%;
+      position: relative;
+      animation: slideUp 0.3s ease-out;
+    }
+    .modal-steps-container {
+      display: flex;
+      gap: 24px;
+      padding: 0 20px;
+    }
+    .modal-step-wrapper {
+      flex: 1;
+    }
+    .modal-step-2-footer {
+      margin-top: 20px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 2rem;
+      font-weight: 300;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.2s;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .modal-close:hover {
+      color: #e67326;
+    }
+    .modal-title {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      color: #e67326;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal-text {
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: left;
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
+    .modal-step {
+      background-color: #f8f8f6;
+      border-left: 4px solid #4db8d8;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .modal-step:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .modal-step-number {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4db8d8;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .modal-step-content {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    .modal-step-detail {
+      margin-left: 16px;
+      margin-top: 8px;
+    }
+    .modal-link {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #4db8d8;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(77, 184, 216, 0.3);
+    }
+    .modal-link:hover {
+      background-color: #3ca5c3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(77, 184, 216, 0.4);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">
+    <img src="images/mefn.gif" alt="Logo">
+  </a>
+  <div class="site-title">Xào</div>
+
+  <div class="container">
+    <div class="header-section">
+      <div class="header-content">
+        <h1><span class="title-regular">Chiến lược kinh doanh</span> <span class="title-highlight">301</span></h1>
+        <img src="images1/divider.png" alt="Divider" style="width: 100%; display: block; margin: 20px 0;">
+        <div class="subtitle">Xây dựng trực giác kinh doanh nhạy bén qua các bài phân tích chiến lược chuyên sâu.</div>
+        <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap;">
+          <button id="buyButton" style="padding: 14px 32px; font-size: 1.1rem; background-color: #e67326; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; transition: all 0.2s; box-shadow: 0 4px 12px rgba(230, 115, 38, 0.3);" onmouseover="this.style.backgroundColor='#d4621a'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(230, 115, 38, 0.4)';" onmouseout="this.style.backgroundColor='#e67326'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(230, 115, 38, 0.3)';">Mua khoá học - 299k VNĐ</button>
+          <button id="unlockButton" style="padding: 14px 32px; font-size: 1.1rem; background-color: #4db8d8; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 700; transition: all 0.2s; box-shadow: 0 4px 12px rgba(77, 184, 216, 0.3);" onmouseover="this.style.backgroundColor='#3ca5c3'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(77, 184, 216, 0.4)';" onmouseout="this.style.backgroundColor='#4db8d8'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(77, 184, 216, 0.3)';">Mở khoá khoá học</button>
+        </div>
+      </div>
+      <img src="images2/2.png" alt="Business Analysis" class="header-image">
+    </div>
+    <!-- <img src="BarcodeShort.png" alt="Barcode separator" style="display:block;margin:0 auto 24px auto;width:70vw;max-width:none;height:auto;opacity:0.85;" /> -->
+    
+    
+    <!-- <img src="hi.gif" style="width: 300px; display: block; margin: 0 auto;"> -->
+
+    <!-- <h1>Cách sử dụng khoá học</h1> -->
+    <p style="margin-bottom: 36px;"></p>
+    <h2>Học thì phải hành - Lý do mình tạo ra khoá học này</h2>
+    <div class="subtitle" style="text-align: left;">
+      <p>Hè năm 2015 mình về Việt Nam tranh thủ học lái xe ô tô. Trước giờ là một sinh viên có trách nhiệm trong mọi môn học, mình mang thái độ đó vào trường học lái xe. Sau 3 tháng mình qua bài kiểm tra lý thuyết với số điểm tuyệt đối, nhưng lại... trượt bài thực hành.</p>
+      <p>Lý do? Lý thuyết lái xe nếu không được đưa vào thực tế trên đường phố sẽ dẫn đến nhiều tình huống không trở tay kịp vì sách vở không dạy. Trong kinh doanh và phát triển sản phẩm cũng vậy, ta có thể học thạc sỹ kinh doanh, biết hết các khái niệm như bản vẽ mô hình kinh doanh, phân tích 3Cs, 4Ps, v.v. Nhưng nếu không hiểu sâu cách áp dụng nó vào thực tế, trực giác kinh doanh của ta sẽ mãi ở tầm "lý thuyết".</p>
+      <img src="images2/driving.png" alt="Driving illustration" style="width:60%;display:block;margin:40px auto;object-fit:contain;" />
+      <p>Trong khoá học mini này, mình dẫn dắt các bạn qua 10 bài phân tích các ngành và lĩnh vực kinh doanh khác nhau và chỉ ra các khái niệm và chiến lược kinh doanh mình thường tập trung vào khi phân tích các công ty trong lĩnh vực đó. Các bài viết đảm bảo không chỉ sâu, mà còn vui với các hình vẽ mình hoạ và câu chuyện hay - để giúp bạn nhớ lâu!</p>
+      <p>Nhào vào thôi!</p>
+    </div>
+
+    <h2>Phân tích chuyên sâu - 10 ngành / lĩnh vực hot trong 5 năm qua </h2>
+    <p style="margin-bottom: 36px;"></p>
+
+    <div class="grid">
+      <!-- Article cards -->
+      <a class="card" href="articles/article1.html">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">01</span>
+        <div class="card-title">Uber viết lại luật chơi giao thông</div>
+        <img src="1.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;" />
+      </a>
+      <a class="card locked" href="articles/article2.html" data-article="2">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">02</span>
+        <div class="card-title">ChatGPT và cơn sốt AI</div>
+        <img src="ai.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article3.html" data-article="3">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">03</span>
+        <div class="card-title">Amazon và cuộc chiến thương mại điện tử</div>
+        <img src="3.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article4.html" data-article="4">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">04</span>
+        <div class="card-title">Cuộc chiến smartphone của ba gã khổng lồ</div>
+        <img src="4.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article5.html" data-article="5">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">05</span>
+        <div class="card-title">Facebook Group và các sản phẩm xây dựng cộng đồng mạng</div>
+        <img src="5.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article6.html" data-article="6">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">06</span>
+        <div class="card-title">Đột phá công nghệ ngành thanh toán</div>
+        <img src="6.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article7.html" data-article="7">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">07</span>
+        <div class="card-title">Tinder mở đầu làn sóng hẹn hò thời hiện đại</div>
+        <img src="7.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article8.html" data-article="8">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">08</span>
+        <div class="card-title">Phân tích chiến lược kinh doanh của các công ty trò chơi điện tử</div>
+        <img src="8.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article9.html" data-article="9">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">09</span>
+        <div class="card-title">Airbnb - từ một con kỳ lân công nghệ trở thành bao công ty trong ngành khách sạn khác</div>
+        <img src="9.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+      <a class="card locked" href="articles/article10.html" data-article="10">
+        <span class="card-number" style="font-family: 'HmtRegular', 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; position: absolute; top: -12px; left: 16px; color: #4db8d8; text-shadow: 2px 2px 0px white; z-index: 1;">10</span>
+        <div class="card-title">Phân tích ngành đồ chơi: sản phẩm cho những kẻ độc tài tí hon</div>
+        <img src="10.png" alt="Article illustration" style="width:100%;max-width:120px;display:block;margin:16px auto 0 auto;aspect-ratio:1/1;object-fit:contain;opacity:0.92;margin-top:auto;" />
+      </a>
+    </div>
+
+    <!-- <img src="divider2.png" alt="Divider" style="display:block;margin:48px auto 24px auto;width:70vw;max-width:none;height:auto;opacity:0.85;" /> -->
+
+    <!-- Concepts Section -->
+    <div class="concepts-section">
+      <h2>27 Khái niệm hay khi phân tích chiến lược kinh doanh</h2>
+
+      <div class="subtitle" style="text-align: left;">Danh sách mang tính tham khảo và không liệt kê tất cả khái niệm trong các bài viết trên.</div>
+      <!-- <img src="notes.gif" width="100" height=auto class="center"> -->
+      <p></p>
+      <p></p>
+      <div class="concepts-grid" id="conceptsGrid">
+        <!-- Concepts will be generated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Business Models Section -->
+    <div class="concepts-section">
+      <h2>27 Chiến lược kinh doanh phổ biến khác</h2>
+
+      <div class="subtitle" style="text-align: left;">Các chiến lược mình không nhắc tới trong những bài phân tích trên, nhưng vẫn khá phổ biến trong kinh doanh.</div>
+      <p></p>
+      <p></p>
+      <div class="concepts-grid" id="businessModelsGrid">
+        <!-- Business models will be generated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Purchase Modal -->
+  <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePurchaseModal()">&times;</button>
+      <h2 class="modal-title">Đặt mua qua hai bước sau</h2>
+
+      <div class="modal-steps-container">
+        <div class="modal-step-wrapper">
+          <div class="modal-step">
+            <span class="modal-step-number">Bước 1</span>
+            <div class="modal-step-content">
+              Chuyển khoản tới tài khoản:
+              <div class="modal-step-detail">
+                <strong>Tên:</strong> Lê Hoà Bình<br>
+                <strong>Ngân hàng:</strong> Vietcombank<br>
+                <strong>Chi nhánh:</strong> Nha Trang, Khánh Hoà<br>
+                <strong>Số tài khoản:</strong> 0061000809781
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-step-wrapper">
+          <div class="modal-step">
+            <span class="modal-step-number">Bước 2</span>
+            <div class="modal-step-content">
+              Chụp lại hình chứng nhận gửi tiền và gửi vào tin nhắn trên Facebook của Xào Ý Tưởng: facebook/xaoytuong
+            </div>
+            <div class="modal-step-2-footer">
+              <a href="https://www.facebook.com/xaoytuong" target="_blank" class="modal-link">Nhắn tin Xào trên Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unlock Modal -->
+  <div id="unlockModal" class="modal">
+    <div class="modal-content" style="max-width: 600px;">
+      <button class="modal-close" onclick="closeUnlockModal()">&times;</button>
+      <h2 class="modal-title">Mở khoá khoá học</h2>
+
+      <div id="codeVerificationSection" style="padding: 20px;">
+        <div style="display: flex; gap: 12px; margin-top: 24px; justify-content: center; align-items: center;">
+          <input type="text" id="unlockCodeModal" placeholder="Nhập mã nhận được khi mua"
+                 style="padding: 12px 20px; font-size: 1.1rem; border: 2px solid #ccc; border-radius: 8px; flex: 1; max-width: 300px; font-family: 'BeVietnamPro', sans-serif;">
+          <button onclick="verifyCodeModal()"
+                  style="padding: 12px 28px; font-size: 1.1rem; background-color: #4db8d8; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'BeVietnamPro', sans-serif; font-weight: 700; transition: all 0.2s;">
+            Xác nhận
+          </button>
+        </div>
+
+        <div id="codeErrorModal" style="display: none; color: #ff4444; margin-top: 16px; text-align: center; font-size: 1rem;">
+          Mã không hợp lệ. Vui lòng thử lại.
+        </div>
+
+        <p style="text-align: center; margin-top: 32px; color: #777; font-size: 0.95rem;">
+          Chưa nhận được mã? <a href="https://www.facebook.com/xaoytuong" target="_blank" style="color: #4db8d8; text-decoration: none; font-weight: 600;">Liên hệ Xào trên Facebook</a>
+        </p>
+      </div>
+
+      <div id="downloadSuccessSection" style="display: none; padding: 20px; text-align: center;">
+        <div style="font-size: 3rem; color: #4db8d8; margin-bottom: 20px;">✓</div>
+        <p class="modal-text" style="text-align: center; padding: 0; margin-bottom: 24px;">Mã hợp lệ! Khoá học đã được mở.</p>
+        <button onclick="closeUnlockModalAfterSuccess()" class="modal-link">
+          Bắt đầu học
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openPurchaseModal() {
+      const modal = document.getElementById('purchaseModal');
+      modal.classList.add('show');
+    }
+
+    function closePurchaseModal() {
+      const modal = document.getElementById('purchaseModal');
+      modal.classList.remove('show');
+    }
+
+    function openUnlockModal() {
+      const modal = document.getElementById('unlockModal');
+      modal.classList.add('show');
+    }
+
+    function closeUnlockModal() {
+      const modal = document.getElementById('unlockModal');
+      modal.classList.remove('show');
+      // Reset modal state
+      document.getElementById('codeVerificationSection').style.display = 'block';
+      document.getElementById('downloadSuccessSection').style.display = 'none';
+      document.getElementById('unlockCodeModal').value = '';
+      document.getElementById('codeErrorModal').style.display = 'none';
+    }
+
+    function verifyCodeModal() {
+      const code = document.getElementById('unlockCodeModal').value.trim();
+      const codeError = document.getElementById('codeErrorModal');
+      const verificationSection = document.getElementById('codeVerificationSection');
+      const successSection = document.getElementById('downloadSuccessSection');
+
+      if (code.endsWith('5618')) {
+        // Valid code - unlock and show success
+        unlockArticles();
+        localStorage.setItem('articlesUnlocked', 'true');
+        verificationSection.style.display = 'none';
+        successSection.style.display = 'block';
+        codeError.style.display = 'none';
+
+        // Hide buy and unlock buttons
+        const buyButton = document.getElementById('buyButton');
+        const unlockButton = document.getElementById('unlockButton');
+        if (buyButton) buyButton.style.display = 'none';
+        if (unlockButton) unlockButton.style.display = 'none';
+      } else {
+        // Invalid code
+        codeError.style.display = 'block';
+        document.getElementById('unlockCodeModal').value = '';
+        document.getElementById('unlockCodeModal').focus();
+      }
+    }
+
+    function closeUnlockModalAfterSuccess() {
+      closeUnlockModal();
+    }
+
+    // Unlock articles function (global scope)
+    function unlockArticles() {
+      const lockedCards = document.querySelectorAll('.card.locked');
+      lockedCards.forEach(card => {
+        card.classList.remove('locked');
+      });
+
+      // Also unlock concept cards and add click functionality
+      const lockedConceptCards = document.querySelectorAll('.concept-item.locked');
+      lockedConceptCards.forEach(card => {
+        card.classList.remove('locked');
+
+        // Add click event to flip the card
+        card.addEventListener('click', () => {
+          const isCurrentlyFlipped = card.classList.contains('flipped');
+
+          // Unflip all cards
+          document.querySelectorAll('.concept-item').forEach(item => {
+            item.classList.remove('flipped');
+          });
+
+          // If this card wasn't flipped, flip it
+          if (!isCurrentlyFlipped) {
+            card.classList.add('flipped');
+          }
+        });
+      });
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const purchaseModal = document.getElementById('purchaseModal');
+      const unlockModal = document.getElementById('unlockModal');
+      if (event.target === purchaseModal) {
+        closePurchaseModal();
+      }
+      if (event.target === unlockModal) {
+        closeUnlockModal();
+      }
+    }
+
+    // Unlock functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const unlockCodeInputModal = document.getElementById('unlockCodeModal');
+      const buyButton = document.getElementById('buyButton');
+      const unlockButton = document.getElementById('unlockButton');
+
+      // Add click event to buy button
+      buyButton.addEventListener('click', openPurchaseModal);
+
+      // Add click event to unlock button
+      unlockButton.addEventListener('click', openUnlockModal);
+
+      // Check if articles are already unlocked (stored in localStorage)
+      const isUnlocked = localStorage.getItem('articlesUnlocked') === 'true';
+      if (isUnlocked) {
+        unlockArticles();
+        if (buyButton) buyButton.style.display = 'none';
+        if (unlockButton) unlockButton.style.display = 'none';
+      }
+
+      // Allow pressing Enter key to submit
+      if (unlockCodeInputModal) {
+        unlockCodeInputModal.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            verifyCodeModal();
+          }
+        });
+      }
+    });
+
+    // Business concepts data
+    const conceptsData = [
+      { term: "Nghịch lý của nhà đổi mới (The Innovator's Dilemma)", definition: "Một công ty lớn đang thành công lại thất bại vì quá tập trung vào tối ưu hoá sản phẩm hiện tại hay chỉ lắng nghe khách hàng hiện tại, mà bỏ lỡ công nghệ mới đột phá.", example: "Nokia tập trung quá vào tối ưu pin lâu và độ bền, mà bỏ lỡ mất cuộc đua điện thoại thông minh khi iPhone ra đời." },
+      { term: "Hiệu ứng mạng lưới (Network effect)", definition: "Sản phẩm trở nên có giá trị hơn khi có nhiều người dùng hơn.", example: "Uber: Nhiều khách đi sẽ thu hút nhiều tài xế, giảm thời gian chờ, và vì thế lại thu hút thêm khách." },
+      { term: "Sản phẩm mồi nhử (Loss leader)", definition: "Bán sản phẩm giá thấp hoặc lỗ để thu hút khách, sau đó kiếm lời từ sản phẩm khác.", example: "Xiaomi bán điện thoại lợi nhuận gần không có, nhưng đổi lại họ kiếm tiền từ TV, laptop, xe điện, nồi cơm, v.v." },
+      { term: "Chi phí chuyển đổi (Switching cost)", definition: "Rào cản hoặc chi phí (tiền, thời gian, công sức, tâm lý) khách hàng gánh chịu khi chuyển sang thương hiệu khác.", example: "Cái phí người dùng phải trả nhảy từ iPhone sang Samsung là rất cao vì hình ảnh của họ đã lưu trong iCloud, tin nhắn thì trong iMessage, nhạc thì trong Apple Music. Mà Android thì lại không có các ứng dụng này." },
+      { term: "Nền tảng vs. Người tổng hợp (Platform vs. Aggregator)", definition: "Platform tạo điều kiện giao dịch giữa các bên. Aggregator giúp tổng hợp thông tin / tài nguyên, và kiểm soát trải nghiệm khách hàng và sở hữu mối quan hệ với người dùng cuối.", example: "Amazon (aggregator) kiểm soát toàn bộ trải nghiệm khách hàng. eBay (platform) chỉ kết nối người bán và mua." },
+      { term: "Chỉ số phù phiếm (Vanity metrics)", definition: "Chỉ số đo lường trông ấn tượng nhưng không phản ánh giá trị thực của sản phẩm hay sức khỏe doanh nghiệp.", example: "Cho các ứng dụng hẹn hò, tỷ lệ khách hàng quay lại dùng sản phẩm cao cũng có nghĩa là ứng dụng không giúp được người dùng hẹn hò thành công. Chỉ số này là chỉ số phù phiếm." },
+      { term: "Khóa chặt hệ sinh thái (Econsystem lock-in)", definition: "Tạo hệ thống sản phẩm/dịch vụ liên kết chặt chẽ, khiến rời khỏi hệ sinh thái khó khăn và tốn kém.", example: "Một khi vào hệ sinh thái của Apple, rời đi rất khó. Càng dùng nhiều dịch vụ, chi phí chuyển đổi càng cao." },
+      { term: "Người đọc lặng vs. Người dùng tích cực (Lurkers vs. Active users)", definition: "Lurker là người chỉ đọc/xem mà không đóng góp nội dung.", example: "Discord có 45% người dùng tích cực, 55% lurkers. Reddit có tỷ lệ lurkers cao hơn." },
+      { term: "Phát tín hiệu địa vị (Status signaling)", definition: "Khách mua sản phẩm không chỉ vì tính năng mà để thể hiện địa vị xã hội, thu nhập, giá trị cá nhân.", example: "Mang một điện thoại iPhone mới nhất giúp người dùng phát tín hiệu mình 'Thu nhập dư dả, trân trọng trải nghiệm cao cấp." },
+      { term: "Tích hợp dọc (Vertical integration)", definition: "Công ty kiểm soát nhiều giai đoạn của chuỗi giá trị như từ nguyên liệu tới sản xuất đến phân phối.", example: "Samsung không chỉ lắp ráp điện thoại mà sản xuất linh kiện, màn hình, chip, pin cho cả iPhone." },
+      { term: "Lợi thế kinh tế quy mô (Economies of Scale)", definition: "Chi phí trung bình cho mỗi đơn vị sản phẩm giảm khi khối lượng sản xuất tăng.", example: "Amazon đầu tư $100+ tỷ vào hậu cần. Mỗi trung tâm hoàn tất đơn hàng (fulfillment center) làm chi phí vận chuyển thấp hơn." },
+      { term: "Định giá động (Dynamic pricing)", definition: "Điều chỉnh giá theo thời gian thực dựa trên cung-cầu hoặc đối tượng khách hàng.", example: "Giá đi xe Uber hơn tới  4.9 lần vào đêm giao thừa ở New York." },
+      { term: "Tê liệt quyết định (Decision paralysis)", definition: "Tình trạng tâm lý bị quá tải thông tin khi có quá nhiều lựa chọn, và vì thế khách hàng không thể đưa ra quyết định.", example: "Lovevery (công ty đồ chơi trẻ em) gửi người dùng đồ chơi được chọn bởi 'chuyên gia' và nhờ đó, các bố mẹ không cần phải tự nghiên cứu lựa chọn đồ chơi tốt cho trẻ." },
+      { term: "Nghịch lý nền tảng (The platform paradox)", definition: "Nền tảng mất đi cái duyên ban đầu khi quy mô mở rộng.", example: "Airbnb ban đầu đầy nơi ở thú vị với chủ nhà địa phương. Thế nhưng hiện tại 60% phòng trên Airbnb là do chủ nhà chuyên nghiệp quản lý với nhiều phòng đăng cho thuê cùng lúc." },
+      { term: "Kinh tế đăng ký (Subscription economy)", definition: "Chuyển từ bán quyền sở hữu sang bán quyền truy cập định kỳ. Mô hình này thường giúp tạo doanh thu ổn định cho công ty, và xây dựng mối quan hệ khách hàng lâu dài hơn.", example: "Lovevery gửi hộp đồ chơi hàng tháng theo giai đoạn phát triển trẻ, nhờ đó giữ chân khách nhiều năm." },
+      { term: "Vấn đề gà và trứng (Chicken-and-egg problem)", definition: "Thử thách khởi đầu nền tảng hai phía: cần người mua để thu hút người bán, nhưng cũng cần người bán để thu hút người mua.", example: "Trong các ứng dụng hẹn hò, phải có nhiều người thì người dùng mới mới muốn tham gia. Nhưng để kiếm được nhiều người dùng thì phải có ai đó tham gia trước khi còn ít người." },
+      { term: "Chiến lược sở hữu danh mục thương hiệu (Portfolio of brands)", definition: "Một công ty sở hữu nhiều thương hiệu nhắm tới các phân khúc khác nhau, nhằm lôi kéo và giữ chân khách hàng trong hệ sinh thái của họ, ngay cả khi khách hàng thay đổi nhu cầu.", example: "Match Group có nhiều ứng dụng như Tinder, Hinge, OkCupid. Người rời Tinder để tìm mối quan hệ nghiêm túc trên Hinge vẫn sẽ nằm trong hệ sinh thái Match Group." },
+      { term: "Mô hình trực tiếp từ nhà máy sản xuất (Direct-from-manufacturer model)", definition: "Kết nối người tiêu dùng trực tiếp với nhà sản xuất, loại bỏ trung gian. Chiến lược này sẽ giúp cho giá giảm đáng kể nhưng thời gian vận chuyển lâu hơn.", example: "Temu kết nối người dùng thẳng tới nhà máy sản xuất. Một sản phẩm $30 trên Amazon có thể chỉ tốn $3 trên Temu." },
+      { term: "Đa dạng hóa doanh thu (Revenue diversification)", definition: "Phát triển nhiều nguồn doanh thu thay vì phụ thuộc vào chỉ một nguồn để giảm rủi ro và tăng độ chống chịu biến động.", example: "Apple không chỉ phụ thuộc vào doanh thu bán phần cứng như iPhone, Macbook, mà còn phát triển dịch vụ như iCloud, App Store, v.v. Các dịch vụ này chiếm khoảng 70% lợi nhuận của Apple vào năm 2024." },
+      { term: "Nền kinh tế cá voi (Whale economy)", definition: "Phần lớn doanh thu (50-80%) đến từ tỷ lệ nhỏ người dùng (1-5%) với chi tiêu cao. Còn đại đa số người dùng còn lại chi rất ít hoặc không chi tiền cho sản phẩm (chỉ dùng phiên bản miễn phí).", example: "Tinder: Phần lớn người dùng dùng miễn phí, chỉ có một nhóm nhỏ mua các tính năng tốt hơn để không phải đợi. Tinder Gold/Plus giá có thể lên đến $500/năm." },
+      { term: "Mô hình dao cạo - lưỡi dao (Razor-blade model)", definition: "Bán sản phẩm cốt lõi với giá thấp (hoặc lỗ) để thu hút khách, và kiếm lời từ sản phẩm bổ sung mà người dùng cần mua định kỳ.", example: "Máy in là dao cạo, thường được bán khá rẻ. Nhưng mực in thường phải mua mới thực sự đắt." },
+      { term: "Đóng gói vs. Tách gói (Bundling vs. Unbundling)", definition: "Bundling = đóng gói nhiều sản phẩm/dịch vụ và bán cùng lúc. Unbundling = tách rời để bán riêng.", example: "Các gói truyền hình cáp đóng gói nhiều kênh khác nhau để bán cho người dùng. Trong khi Amazon Prime có bán hoặc cho thuê một số phim nhỏ lẻ." },
+      { term: "Cuộc cách mạng đủ tốt ('Good enough' revolution)", definition: "Cung cấp chất lượng 'đủ tốt' với giá cực thấp thay vì tập trung quá nhiều vào chất lượng tốt nhất.", example: "Temu/Shein: Áo $3 không bền như $30 nhưng nếu chỉ mặc vài lần, nhiều khách hàng chỉ muốn trả cho cái áo chất lượng vừa phải nhưng rẻ hơn." },
+      { term: "Chiến lược bắt chước nhanh (Fast follower strategy)", definition: "Chờ người khác tiên phong, học từ sai lầm của họ rồi tung phiên bản hoàn thiện hơn. Chiến lược này tránh rủi ro của người đi đầu nhưng vẫn hưởng lợi.", example: "Samsung không phát minh smartphone mà dựa vào những gì họ thấy iPHone làm và cho ra sản phẩm tương tự với một vài đặc điểm khác biệt như màn hình lớn hơn, pin lớn hơn, camera tốt hơn, giá rẻ hơn." },
+    ];
+
+    // Business model concepts data
+    const businessModelsData = [
+      { term: "Chiến lược Aikido (Aikido)", definition: "Cạnh tranh bằng cách đưa ra sản phẩm đối lập với tiêu chuẩn ngành", example: "Nintendo Wii dùng công nghệ đơn giản hơn Xbox hay Playstation nhưng có tính năng cực kỳ thu hút nhóm khách hàng đối thủ của họ không phục vụ." },
+      { term: "Đuôi dài (Long Tail)", definition: "Bán số lượng nhỏ của rất nhiều sản phẩm ngách thay vì tập trung vào vài sản phẩm chủ lực.", example: "Amazon bán hàng triệu đầu sách ít tiếng / ít phổ biến, và tổng doanh thu từ các đầu sách ngách này vượt cả những cuốn sách bestseller." },
+      { term: "Xa xỉ tối thượng (Ultimate Luxury)", definition: "Phục vụ nhóm khách hàng siêu giàu bằng sản phẩm/dịch vụ cực kỳ khan hiếm với lợi nhuận cực cao.", example: "Ferrari sản xuất xe với số lượng giới hạn và tạo độc quyền với giá bán cực cao." },
+      { term: "Đáy kim tự tháp (Bottom of the Pyramid)", definition: "Cung cấp sản phẩm giá thấp, lợi nhuận thấp nhưng bán cho thị trường cực lớn với thu nhập thấp.", example: "Fan Milk bán sữa và nước trái cây chở trên xe đạp, phù hợp cho nhóm khách hàng thu nhập thấp nhưng số lượng đông." },
+      { term: "Mồi–lưỡi dao đảo ngược (Reverse Razor Blade)", definition: "Bán sản phẩm chính với giá cao, còn vật đính kèm thì với giá rẻ.", example: "Kindle là thiết bị tương đối đắt, nhưng sách điện tử được bán với giá rẻ để người dùng mua nhiều hơn." },
+      { term: "Phí thêm (Add-on)", definition: "Giá gốc của sản phẩm thấp, nhưng thu thêm lợi nhuận từ các tính năng hoặc dịch vụ bổ sung.", example: "Ryanair bán vé máy bay rẻ nhưng thu phí cao cho hành lý, chọn ghế ngồi, và quyền ưu tiên lên máy bay" },
+      { term: "Tín dụng giao dịch (Credits)", definition: "Khách hàng nạp hoặc tích lũy credit để dùng sau. Các credit này thường được giảm giá khi mua theo gói nhiều credit cùng lúc.", example: "Audible cho người dùng credit theo tháng để đổi lấy sách nói, và bán thêm credit với giá ưu đãi." },
+      { term: "Trả theo ý bạn (Pay What You Want)", definition: "Khách tự chọn mức giá họ muốn trả, đôi khi kèm mức giá tối thiểu hoặc giá gợi ý.", example: "Humble Bundle cho phép người mua trả tùy ý cho gói game, và nếu trả cao họ sẽ có thêm phần thưởng." },
+      { term: "Trọn gói không giới hạn (All You Can Eat)", definition: "Thu phí cố định và cho phép người dùng sử dụng không giới hạn.", example: "Spotify cho người dùng nghe toàn bộ thư viện nhạc chỉ với một mức phí hàng tháng." },
+      { term: "Sở hữu một phần (Fractional Ownership)", definition: "Nhiều khách hàng cùng sở hữu tài sản đắt tiền và chia sẻ quyền sử dụng.", example: "Flexjet bán cổ phần máy bay, cho khách quyền dùng theo giờ với giá thấp hơn nhiều so với sở hữu riêng." },
+      { term: "Bán hàng ký gửi trực tiếp (Drop Ship)", definition: "Bán hàng mà không cần tồn kho; nhà cung cấp giao hàng trực tiếp cho khách.", example: "Printful in và giao hàng cho các shop online, giúp họ kinh doanh mà không cần kho trữ hàng." },
+      { term: "Ngang hàng – P2P (Peer-to-Peer)", definition: "Cá nhân người dùng giao dịch trực tiếp với người dùng khác qua nền tảng trung gian.", example: "eBay kết nối người mua và bán là người dùng thông thường." },
+      { term: "Tự phục vụ (Self Service)", definition: "Khách hàng tự làm một phần quy trình nào đó để giúp giảm chi phí sản phẩm.", example: "IKEA để khách tự lấy hàng và tự lắp ráp, và nhờ đó giảm giá thành sản phẩm." },
+      { term: "Không tiện ích thừa (No Frills)", definition: "Lược bỏ tính năng/phụ kiện không cần thiết để giảm giá tối đa.", example: "Ibis Budget cung cấp phòng trọ đơn giản, không minibar và ít dịch vụ để giữ giá cực thấp." },
+      { term: "Đổi mới đảo chiều (Reverse Innovation)", definition: "Sản phẩm phát triển cho thị trường /đất nước đang phát triển được đưa ngược sang thị trường phát triển như giải pháp rẻ và đơn giản hơn.", example: "Máy ECG giá rẻ mà công ty GE thiết kế cho Ấn Độ được đưa sang các nước phát triển cho những khách hàng muốn hàng rẻ hơn." },
+      { term: "Gợi ý chọn lọc (Curation)", definition: "Thu thập, chọn lọc và đề xuất lựa chọn tốt nhất để giúp khách hàng không phải động não tìm kiếm hàng thích hợp để mua.", example: "Stitch Fix dùng stylist và AI để chọn quần áo phù hợp để gửi cho khách hàng định kỳ, và kiếm tiền từ các món mà khách giữ lại." },
+      { term: "Người tiêu dùng là nhà sản xuất (Prosumer)", definition: "Khách hàng vừa dùng sản phẩm nhưng cũng tạo ra giá trị cho sản phẩm.", example: "YouTuber tạo nội dung thu hút người xem, mang lại doanh thu quảng cáo cho YouTube." },
+      { term: "Người dùng tự thiết kế (User Designed)", definition: "Cho phép người dùng tự thiết kế hoặc tùy biến sản phẩm.", example: "Công ty giày Nike với chiến lược 'Nike By You' cho khách tự tạo phối màu và chất liệu cho đôi giày của mình." },
+    ];
+
+    // Generate flashcard items
+    const conceptsGrid = document.getElementById('conceptsGrid');
+
+    conceptsData.forEach((concept, index) => {
+      const conceptItem = document.createElement('div');
+      conceptItem.className = 'concept-item';
+
+      // Lock cards after the first 3
+      if (index >= 3) {
+        conceptItem.classList.add('locked');
+      }
+
+      const exampleHTML = concept.example ? `<div class="concept-example">${concept.example}</div>` : '';
+      const cardNumber = String(index + 1).padStart(2, '0');
+
+      conceptItem.innerHTML = `
+        <span class="concept-number">${cardNumber}</span>
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <div class="concept-term">${concept.term}</div>
+          </div>
+          <div class="flashcard-back">
+            <div class="concept-definition">${concept.definition}</div>
+            ${exampleHTML}
+          </div>
+        </div>
+      `;
+
+      // Add click event to flip the card (only for unlocked cards)
+      if (index < 3) {
+        conceptItem.addEventListener('click', () => {
+          const isCurrentlyFlipped = conceptItem.classList.contains('flipped');
+
+          // Unflip all cards
+          document.querySelectorAll('.concept-item').forEach(item => {
+            item.classList.remove('flipped');
+          });
+
+          // If this card wasn't flipped, flip it
+          if (!isCurrentlyFlipped) {
+            conceptItem.classList.add('flipped');
+          }
+        });
+      }
+
+      conceptsGrid.appendChild(conceptItem);
+    });
+
+    // Generate business model flashcard items
+    const businessModelsGrid = document.getElementById('businessModelsGrid');
+
+    businessModelsData.forEach((concept, index) => {
+      const conceptItem = document.createElement('div');
+      conceptItem.className = 'concept-item';
+
+      // Lock cards after the first 3
+      if (index >= 3) {
+        conceptItem.classList.add('locked');
+      }
+
+      const exampleHTML = concept.example ? `<div class="concept-example">${concept.example}</div>` : '';
+      const cardNumber = String(index + 1).padStart(2, '0');
+
+      conceptItem.innerHTML = `
+        <span class="concept-number">${cardNumber}</span>
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <div class="concept-term">${concept.term}</div>
+          </div>
+          <div class="flashcard-back">
+            <div class="concept-definition">${concept.definition}</div>
+            ${exampleHTML}
+          </div>
+        </div>
+      `;
+
+      // Add click event to flip the card (only for unlocked cards)
+      if (index < 3) {
+        conceptItem.addEventListener('click', () => {
+          const isCurrentlyFlipped = conceptItem.classList.contains('flipped');
+
+          // Unflip all cards
+          document.querySelectorAll('.concept-item').forEach(item => {
+            item.classList.remove('flipped');
+          });
+
+          // If this card wasn't flipped, flip it
+          if (!isCurrentlyFlipped) {
+            conceptItem.classList.add('flipped');
+          }
+        });
+      }
+
+      businessModelsGrid.appendChild(conceptItem);
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM Interview Secrets - Product Management Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'HmtRegular';
+      src: url('HmtRegular-WRrv.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    body {
+      font-family: 'BeVietnamPro', sans-serif;
+      background-color: #ecebe4;
+      background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="1" fill="%23d2d1c7"/></svg>');
+      background-size: 28px 28px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Animated background circles */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      background: #4db8d8;
+      width: 50vh;
+      height: 50vh;
+      top: 20%;
+      left: -10vh;
+      animation: float 6s ease-in-out infinite;
+    }
+    body::after {
+      background: #ff8c42;
+      width: 150px;
+      height: 150px;
+      bottom: 15%;
+      right: 8%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .site-title {
+      position: fixed;
+      top: 85px;
+      left: 20px;
+      z-index: 100;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      width: 60px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      text-align: left;
+      margin-bottom: 24px;
+      color: #222;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+    .title-regular {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-weight: 600;
+      color: #4db8d8;
+      font-size: 4rem;
+    }
+    .title-highlight {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-weight: 700;
+      color: #e67326;
+      font-size: 5rem;
+    }
+    .header-section h1 {
+      text-align: left;
+    }
+    .header-section .subtitle {
+      text-align: left;
+    }
+    .header-section .intro-text {
+      text-align: left;
+      margin: 0;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 64px;
+      margin-bottom: 32px;
+      color: #e67326;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      text-align: center;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1.3rem;
+      color: #555555;
+      margin: 6px 0 48px 0;
+      line-height: 1.5;
+    }
+    .intro-text {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 48px auto;
+      line-height: 1.6;
+    }
+    .header-section {
+      position: relative;
+      margin-bottom: 48px;
+      display: flex;
+      gap: 80px;
+      align-items: center;
+    }
+    .header-content {
+      flex: 1;
+      max-width: 45%;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.95;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+      animation: bookFloat 3s ease-in-out infinite;
+      cursor: pointer;
+    }
+    .product-image:hover {
+      transform: scale(1.05) rotate(-2deg);
+      filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4));
+    }
+    .product-image.preview-active {
+      opacity: 0;
+      pointer-events: none;
+    }
+    @keyframes bookFloat {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .tool-card {
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 14px 32px 14px 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 24px 20px;
+      transition: transform 0.18s cubic-bezier(.22,1,.36,1), box-shadow 0.18s cubic-bezier(.22,1,.36,1), background 0.15s;
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      position: relative;
+    }
+    .tool-card:hover {
+      transform: scale(1.045) translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      background-color: #d4e8f0;
+    }
+    .tool-number {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      color: #ff8c42;
+      text-shadow: 2px 2px 0px white;
+      z-index: 1;
+    }
+    .tool-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-top: 20px;
+      margin-bottom: 0;
+      margin-right: 6px;
+      font-family: 'BeVietnamPro', sans-serif;
+      color: #e67326;
+      display: inline;
+    }
+    .tool-desc {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 16px;
+      display: inline;
+    }
+    .tool-image {
+      width: 100%;
+      max-width: 140px;
+      height: 140px;
+      display: block;
+      margin: auto auto 0 auto;
+      object-fit: contain;
+    }
+    .benefits-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .benefit-item {
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .benefit-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+    }
+    .benefit-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffe066;
+      background-color: #222;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+    }
+    .benefit-content {
+      flex: 1;
+    }
+    .benefit-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      color: #222;
+    }
+    .benefit-desc {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .user-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 64px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .user-type-card {
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.18s cubic-bezier(.22,1,.36,1);
+    }
+    .user-type-card:hover {
+      transform: translateY(-6px);
+    }
+    .user-type-image {
+      width: 156px;
+      height: 156px;
+      margin: 0 auto 20px auto;
+      display: block;
+      object-fit: contain;
+    }
+    .user-type-title {
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-bottom: 12px;
+      font-family: 'BeVietnamPro', sans-serif;
+      color: #555555;
+    }
+    .user-type-desc {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .purchase-section {
+      margin-top: 80px;
+      margin-bottom: 64px;
+    }
+    .purchase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .purchase-card {
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .purchase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+    }
+    .purchase-card:not(.sold-out):hover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      padding: 3px;
+      background: linear-gradient(90deg, #4db8d8, #2da0c0, #4db8d8, #2da0c0);
+      background-size: 300% 100%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      animation: borderRun 2s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes borderRun {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 300% 0%;
+      }
+    }
+    .purchase-card.sold-out {
+      opacity: 0.6;
+    }
+    .purchase-card.sold-out:hover {
+      transform: none;
+    }
+    .sold-out-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ff4444;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'BeVietnamPro', sans-serif;
+    }
+    .purchase-title {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 16px;
+    }
+    .purchase-type {
+      font-size: 1.1rem;
+      color: #777;
+      margin-bottom: 24px;
+      font-family: 'BeVietnamPro', sans-serif;
+    }
+    .purchase-price {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #e67326;
+      margin-bottom: 8px;
+    }
+    .purchase-currency {
+      font-size: 1.2rem;
+      color: #777;
+      margin-bottom: 32px;
+    }
+    .purchase-button {
+      background-color: #4db8d8;
+      color: white;
+      border: none;
+      padding: 16px 48px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: 'BeVietnamPro', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .purchase-button:hover {
+      background-color: #2da0c0;
+      transform: scale(1.05);
+    }
+    .purchase-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+    /* Download button specific styles */
+    a.purchase-button:hover {
+      background-color: #c55d1f !important;
+      transform: scale(1.05);
+    }
+    /* Book Preview - inline replacement */
+    .book-preview-inline {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      border-radius: 8px;
+      padding: 0;
+      box-shadow: none;
+      z-index: 10;
+      overflow: hidden;
+    }
+    .book-preview-inline.show {
+      display: block;
+      animation: bookExpand 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+    @keyframes bookExpand {
+      0% {
+        transform: perspective(1500px) rotateY(-90deg) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        transform: perspective(1500px) rotateY(-45deg) scale(0.75);
+        opacity: 0.5;
+      }
+      100% {
+        transform: perspective(1500px) rotateY(0deg) scale(1);
+        opacity: 1;
+      }
+    }
+    .book-preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #ecebe4;
+      background-color: transparent;
+    }
+    .book-preview-title {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 1.8rem;
+      color: #e67326;
+    }
+    .book-preview-close {
+      font-size: 2rem;
+      color: #888;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.2s;
+    }
+    .book-preview-close:hover {
+      color: #e67326;
+    }
+    .book-preview-close-inline {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2.5rem;
+      color: #888;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 100;
+      line-height: 1;
+      padding: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .book-preview-close-inline:hover {
+      color: #e67326;
+      background: rgba(255, 255, 255, 1);
+      transform: scale(1.1);
+    }
+    .book-pages-container {
+      overflow-y: auto;
+      padding: 10px;
+    }
+    #bookPagesContainerInline {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .book-page {
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: transparent;
+    }
+    .book-page:last-child {
+      margin-bottom: 0;
+    }
+    .book-page canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+    .page-number {
+      text-align: center;
+      padding: 10px;
+      font-family: 'BeVietnamPro', sans-serif;
+      color: #888;
+      font-size: 0.9rem;
+      background: #f8f8f6;
+    }
+    .loading-message {
+      text-align: center;
+      padding: 40px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 14px 32px 14px 14px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      padding: 24px 40px 40px 40px;
+      max-width: 900px;
+      width: 90%;
+      position: relative;
+      animation: slideUp 0.3s ease-out;
+    }
+    .modal-steps-container {
+      display: flex;
+      gap: 24px;
+      padding: 0 20px;
+    }
+    .modal-step-wrapper {
+      flex: 1;
+    }
+    .modal-step-2-footer {
+      margin-top: 20px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 2rem;
+      font-weight: 300;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.2s;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .modal-close:hover {
+      color: #e67326;
+    }
+    .modal-title {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      color: #e67326;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal-text {
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: left;
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
+    .modal-step {
+      background-color: #f8f8f6;
+      border-left: 4px solid #4db8d8;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .modal-step:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .modal-step-number {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4db8d8;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .modal-step-content {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    .modal-step-detail {
+      margin-left: 16px;
+      margin-top: 8px;
+    }
+    .modal-link {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #4db8d8;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(77, 184, 216, 0.3);
+    }
+    .modal-link:hover {
+      background-color: #3ca5c3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(77, 184, 216, 0.4);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 2.4rem;
+      }
+      .subtitle {
+        font-size: 1.7rem;
+      }
+      .header-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .header-content {
+        max-width: 100%;
+      }
+      .product-image {
+        width: 100%;
+        max-width: 300px;
+        order: -1;
+      }
+      .header-section h1,
+      .header-section .subtitle,
+      .header-section .intro-text {
+        text-align: center;
+      }
+      .purchase-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .user-types-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">
+    <img src="images/mefn.gif" alt="Logo">
+  </a>
+  <div class="site-title">Xào</div>
+  <div class="container">
+    <div class="header-section">
+      <div class="header-content">
+        <div>
+          <h1><span class="title-highlight" style="color: #d7793b; font-size: 4rem;">Cẩm nang phỏng vấn PM</span></h1>
+          <!-- <img src="images1/divider.png" alt="Divider" style="width: 100%; display: block; margin: 20px 0;"> -->
+        </div>
+
+        <div class="subtitle" style="margin-top: auto; font-size: 1.1rem;">Sách mình dùng khi chạy workshop giúp sinh viên MBA luyện phỏng vấn vị trí quản lý và phát triển sản phẩm (Product Manager).
+        </div>
+        <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap;">
+          <a href="https://a.co/d/gg5EYdX" target="_blank" id="buyButton" style="padding: 14px 32px; font-size: 1.1rem; background-color: #4db8d8; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'BeVietnamPro', sans-serif; font-weight: 700; transition: all 0.2s; box-shadow: 0 4px 12px rgba(77, 184, 216, 0.3); text-decoration: none; display: inline-block;">Mua sách trên Amazon</a>
+        </div>
+      </div>
+      <div class="book-image-container" style="flex: 1; width: 45%; max-width: 45%; position: relative; display: flex; align-items: flex-start;">
+        <img src="images5/cover.jpg" alt="PM Interview Book" class="product-image" id="bookImage" onclick="openBookPreview()" style="position: relative;">
+        <div id="previewHelpText" style="position: absolute; top: 66.66%; right: -130px; transform: translateY(-50%); background-color: rgba(77, 184, 216, 1); color: white; width: 180px; height: 60px; font-family: 'BeVietnamPro', sans-serif; font-size: 1rem; font-weight: 600; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 5; transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.2; clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%); border-radius: 8px 0 0 8px;" onclick="openBookPreview()">
+          Đọc thử phần 1
+        </div>
+        <div class="book-preview-inline" id="bookPreviewInline">
+          <button class="book-preview-close-inline" onclick="closeBookPreview()">&times;</button>
+          <div class="book-pages-container" id="bookPagesContainerInline">
+            <div class="loading-message">Đang tải...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Purchase Modal -->
+  <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h2 class="modal-title">Đặt mua qua hai bước sau</h2>
+
+      <div class="modal-steps-container">
+        <div class="modal-step-wrapper">
+          <div class="modal-step">
+            <span class="modal-step-number">Bước 1</span>
+            <div class="modal-step-content">
+              Chuyển khoản tới tài khoản:
+              <div class="modal-step-detail">
+                <strong>Tên:</strong> Lê Hoà Bình<br>
+                <strong>Ngân hàng:</strong> Vietcombank<br>
+                <strong>Chi nhánh:</strong> Nha Trang, Khánh Hoà<br>
+                <strong>Số tài khoản:</strong> 0061000809781
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-step-wrapper">
+          <div class="modal-step">
+            <span class="modal-step-number">Bước 2</span>
+            <div class="modal-step-content">
+              Chụp lại hình chứng nhận gửi tiền và gửi vào tin nhắn trên Facebook của Xào Ý Tưởng: facebook/xaoytuong
+            </div>
+            <div class="modal-step-2-footer">
+              <a href="https://www.facebook.com/xaoytuong" target="_blank" class="modal-link">Nhắn tin Xào trên Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Modal -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content" style="max-width: 600px;">
+      <button class="modal-close" onclick="closeDownloadModal()">&times;</button>
+      <h2 class="modal-title">Tải sách</h2>
+
+      <div id="codeVerificationSection" style="padding: 20px;">
+        <div style="display: flex; gap: 12px; margin-top: 24px; justify-content: center; align-items: center;">
+          <input type="text" id="downloadCodeModal" placeholder="Nhập mã nhận được khi mua"
+                 style="padding: 12px 20px; font-size: 1.1rem; border: 2px solid #ccc; border-radius: 8px; flex: 1; max-width: 300px; font-family: 'BeVietnamPro', sans-serif;">
+          <button onclick="verifyCodeModal()"
+                  style="padding: 12px 28px; font-size: 1.1rem; background-color: #4db8d8; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'BeVietnamPro', sans-serif; font-weight: 700; transition: all 0.2s;">
+            Xác nhận
+          </button>
+        </div>
+
+        <div id="codeErrorModal" style="display: none; color: #ff4444; margin-top: 16px; text-align: center; font-size: 1rem;">
+          Mã không hợp lệ. Vui lòng thử lại.
+        </div>
+
+        <p style="text-align: center; margin-top: 32px; color: #777; font-size: 0.95rem;">
+          Chưa nhận được mã? <a href="https://www.facebook.com/xaoytuong" target="_blank" style="color: #4db8d8; text-decoration: none; font-weight: 600;">Liên hệ Xào trên Facebook</a>
+        </p>
+      </div>
+
+      <div id="downloadSuccessSection" style="display: none; padding: 20px; text-align: center;">
+        <div style="font-size: 3rem; color: #4db8d8; margin-bottom: 20px;">✓</div>
+        <p class="modal-text" style="text-align: center; padding: 0; margin-bottom: 24px;">Mã hợp lệ! Nhấn nút bên dưới để tải xuống sách.</p>
+        <a href="images5/pmbook.pdf" download="PM-Interview-Secrets.pdf" target="_blank" class="modal-link">
+          Tải xuống PDF
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configure PDF.js worker
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+
+    // Book Preview Functions
+    let pdfDoc = null;
+    let isBookPreviewLoaded = false;
+
+    async function openBookPreview() {
+      const bookImage = document.getElementById('bookImage');
+      const inlinePreview = document.getElementById('bookPreviewInline');
+      const helpText = document.getElementById('previewHelpText');
+      const container = bookImage.parentElement;
+
+      // Match preview height to image height
+      const imageHeight = bookImage.offsetHeight;
+      const imageWidth = bookImage.offsetWidth;
+
+      console.log('Image dimensions:', imageWidth, 'x', imageHeight);
+
+      inlinePreview.style.width = imageWidth + 'px';
+      inlinePreview.style.height = imageHeight + 'px';
+
+      // Hide the book image and help text
+      bookImage.classList.add('preview-active');
+      helpText.style.display = 'none';
+
+      // Show inline preview with animation
+      inlinePreview.classList.add('show');
+
+      // Only load PDF once
+      if (!isBookPreviewLoaded && typeof pdfjsLib !== 'undefined') {
+        await loadBookPages();
+        isBookPreviewLoaded = true;
+      }
+    }
+
+    function closeBookPreview() {
+      const bookImage = document.getElementById('bookImage');
+      const inlinePreview = document.getElementById('bookPreviewInline');
+      const helpText = document.getElementById('previewHelpText');
+
+      // Show the book image and help text again
+      bookImage.classList.remove('preview-active');
+      helpText.style.display = 'flex';
+
+      // Hide inline preview
+      inlinePreview.classList.remove('show');
+    }
+
+    async function loadBookPages() {
+      const container = document.getElementById('bookPagesContainerInline');
+      container.innerHTML = '<div class="loading-message">Đang tải PDF...</div>';
+
+      try {
+        // Load PDF with CORS mode
+        const loadingTask = pdfjsLib.getDocument({
+          url: 'images5/pmbook.pdf',
+          withCredentials: false,
+          cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+          cMapPacked: true
+        });
+
+        pdfDoc = await loadingTask.promise;
+        console.log('PDF loaded successfully, total pages:', pdfDoc.numPages);
+
+        const totalPages = Math.min(pdfDoc.numPages, 12); // Max 12 pages
+        container.innerHTML = '<div class="loading-message">Đang render ' + totalPages + ' trang...</div>';
+
+        // Small delay to show loading message
+        await new Promise(resolve => setTimeout(resolve, 100));
+        container.innerHTML = '';
+
+        // Render pages sequentially with progress updates
+        for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+          try {
+            console.log('Rendering page', pageNum);
+            const page = await pdfDoc.getPage(pageNum);
+
+            // Calculate scale to fit the container width
+            const containerWidth = container.offsetWidth;
+            const pageViewport = page.getViewport({ scale: 1.0 });
+            const scale = containerWidth / pageViewport.width;
+            const viewport = page.getViewport({ scale: scale });
+
+            // Create page container
+            const pageDiv = document.createElement('div');
+            pageDiv.className = 'book-page';
+
+            // Create canvas
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d', { alpha: false });
+
+            // Set canvas dimensions
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            console.log('Canvas size:', canvas.width, 'x', canvas.height);
+
+            // Render PDF page into canvas
+            const renderContext = {
+              canvasContext: context,
+              viewport: viewport,
+              background: 'white'
+            };
+
+            await page.render(renderContext).promise;
+            console.log('Page', pageNum, 'rendered successfully');
+
+            pageDiv.appendChild(canvas);
+            container.appendChild(pageDiv);
+
+          } catch (pageError) {
+            console.error('Error rendering page', pageNum, ':', pageError);
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'loading-message';
+            errorDiv.style.color = '#ff4444';
+            errorDiv.textContent = `Lỗi khi tải trang ${pageNum}`;
+            container.appendChild(errorDiv);
+          }
+        }
+
+      } catch (error) {
+        console.error('Error loading PDF:', error);
+        console.error('Error details:', error.message, error.name);
+        container.innerHTML = '<div class="loading-message" style="color: #ff4444;">Không thể tải PDF. Lỗi: ' + error.message + '<br>Vui lòng kiểm tra console để biết thêm chi tiết.</div>';
+      }
+    }
+
+    // Modal functions
+    function openModal() {
+      const modal = document.getElementById('purchaseModal');
+      modal.classList.add('show');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('purchaseModal');
+      modal.classList.remove('show');
+    }
+
+    function openDownloadModal() {
+      const modal = document.getElementById('downloadModal');
+      modal.classList.add('show');
+      // Reset the modal state
+      document.getElementById('codeVerificationSection').style.display = 'block';
+      document.getElementById('downloadSuccessSection').style.display = 'none';
+      document.getElementById('downloadCodeModal').value = '';
+      document.getElementById('codeErrorModal').style.display = 'none';
+    }
+
+    function closeDownloadModal() {
+      const modal = document.getElementById('downloadModal');
+      modal.classList.remove('show');
+    }
+
+    function verifyCodeModal() {
+      const code = document.getElementById('downloadCodeModal').value.trim();
+      const codeError = document.getElementById('codeErrorModal');
+      const verificationSection = document.getElementById('codeVerificationSection');
+      const successSection = document.getElementById('downloadSuccessSection');
+
+      if (code.endsWith('1702')) {
+        // Valid code - show download section
+        verificationSection.style.display = 'none';
+        successSection.style.display = 'block';
+        codeError.style.display = 'none';
+      } else {
+        // Invalid code
+        codeError.style.display = 'block';
+        document.getElementById('downloadCodeModal').value = '';
+        document.getElementById('downloadCodeModal').focus();
+      }
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const purchaseModal = document.getElementById('purchaseModal');
+      const downloadModal = document.getElementById('downloadModal');
+      if (event.target === purchaseModal) {
+        closeModal();
+      }
+      if (event.target === downloadModal) {
+        closeDownloadModal();
+      }
+    }
+
+    // Add click event to buy button and preview help text
+    document.addEventListener('DOMContentLoaded', function() {
+      const buyButton = document.getElementById('buyButton');
+      const previewHelpText = document.getElementById('previewHelpText');
+
+      // Add hover effects to buy button
+      if (buyButton) {
+        buyButton.addEventListener('mouseenter', function() {
+          this.style.backgroundColor = '#3ca5c3';
+          this.style.transform = 'translateY(-2px)';
+          this.style.boxShadow = '0 6px 16px rgba(77, 184, 216, 0.4)';
+        });
+        buyButton.addEventListener('mouseleave', function() {
+          this.style.backgroundColor = '#4db8d8';
+          this.style.transform = 'translateY(0)';
+          this.style.boxShadow = '0 4px 12px rgba(77, 184, 216, 0.3)';
+        });
+      }
+
+      // Add hover effects to preview help text
+      if (previewHelpText) {
+        previewHelpText.addEventListener('mouseenter', function() {
+          this.style.backgroundColor = 'rgba(61, 165, 195, 1)';
+          this.style.transform = 'translateY(-50%) translateX(-5px)';
+          this.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
+        });
+        previewHelpText.addEventListener('mouseleave', function() {
+          this.style.backgroundColor = 'rgba(77, 184, 216, 1)';
+          this.style.transform = 'translateY(-50%)';
+          this.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.2)';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

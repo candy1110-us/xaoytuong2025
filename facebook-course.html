@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'HmtRegular';
+      src: url('HmtRegular-WRrv.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    body {
+      font-family: 'BeVietnamPro', sans-serif;
+      background-color: #ecebe4;
+      background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="1" fill="%23d2d1c7"/></svg>');
+      background-size: 28px 28px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      background: #4db8d8;
+      width: 50vh;
+      height: 50vh;
+      top: 20%;
+      left: -10vh;
+      animation: float 6s ease-in-out infinite;
+    }
+    body::after {
+      background: #ff8c42;
+      width: 150px;
+      height: 150px;
+      bottom: 15%;
+      right: 8%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .site-title {
+      position: fixed;
+      top: 85px;
+      left: 20px;
+      z-index: 100;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      width: 60px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      text-align: left;
+      margin-bottom: 24px;
+      color: #222;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+    .title-regular {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-weight: 600;
+      color: #4db8d8;
+      font-size: 4rem;
+    }
+    .title-highlight {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-weight: 700;
+      color: #e67326;
+      font-size: 5rem;
+    }
+    .header-section {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .header-content {
+      flex: 1;
+    }
+    .header-image {
+      flex: 0 0 50%;
+      width: 50%;
+      height: auto;
+    }
+    .subtitle {
+      text-align: left;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1.3rem;
+      color: #555555;
+      margin: 6px 0 0 0;
+      line-height: 1.5;
+    }
+    .intro-section {
+      margin-bottom: 48px;
+    }
+    .intro-section h2 {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 3.2rem;
+      color: #222;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    .intro-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .intro-section strong {
+      color: #e67326;
+    }
+    .section-title {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 3.2rem;
+      color: #222;
+      margin: 48px 0 24px 0;
+      text-align: left;
+      letter-spacing: 1px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .video-card {
+      background-color: #fffefb;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 14px 32px 14px 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 24px;
+      transition: transform 0.18s cubic-bezier(.22,1,.36,1), box-shadow 0.18s cubic-bezier(.22,1,.36,1), background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .video-card:hover {
+      transform: scale(1.045) translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      background-color: #ffe066;
+    }
+    .video-number {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4db8d8;
+      min-width: 60px;
+      text-align: center;
+    }
+    .video-content {
+      flex: 1;
+    }
+    .video-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #555555;
+      margin-bottom: 4px;
+      font-family: 'BeVietnamPro', sans-serif;
+      line-height: 1.4;
+    }
+    .video-desc {
+      font-size: 1rem;
+      color: #555;
+    }
+    .bonus-section {
+      margin-bottom: 48px;
+    }
+    .bonus-section h3 {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 3.2rem;
+      color: #222;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    .bonus-section p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .video-embed {
+      margin: 48px 0;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .title-regular {
+        font-size: 2.5rem;
+      }
+      .title-highlight {
+        font-size: 3rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .header-section {
+        flex-direction: column;
+      }
+      .header-image {
+        width: 100%;
+        max-width: 300px;
+        order: -1;
+      }
+      .header-section h1,
+      .header-section .subtitle {
+        text-align: center;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .video-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .video-number {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">
+    <img src="images/mefn.gif" alt="Logo">
+  </a>
+  <div class="site-title">Xào</div>
+
+  <div class="container">
+    <div class="header-section">
+      <div class="header-content">
+        <h1> <span class="title-highlight">Facebook Marketing</span></h1>
+        <img src="images1/divider.png" alt="Divider" style="width: 100%; display: block; margin: 20px 0;">
+        <div class="subtitle">Kiếm 10K người theo dõi chỉ trong 1 tháng, qua trình tự 4 bước marketing.</div>
+      </div>
+      <img src="images1/facebookcourse/cover.jpeg" alt="Facebook Marketing Course" class="header-image">
+    </div>
+
+    <div class="intro-section">
+      <h2>Giới thiệu chung & Khái niệm cơ bản</h2>
+      <p><strong>Facebook hiện vẫn là ứng dụng điện thoại được sử dụng nhiều nhất và số lượng người sử dụng Facebook của Việt Nam đứng trong top 10 thế giới.</strong> Vì thế, việc sử dụng quảng cáo trên Facebook để quảng bá hình ảnh thương hiệu của bạn như thủ khách hàng tiềm năng là một cơ hội lớn trong marketing cực kỳ quan trọng cho startup tại Việt Nam. Mặc dù thế, nhiều startup chưa biết tận dụng Facebook Ads một cách hiệu quả, và nhỡ dở mỗi ra có thể cho bạn nhanh chồng chiếm được một vị trí trên thị trường bằng cách sử dụng kiến thức chuyên sâu về Facebook Ads.</p>
+
+      <p>Khoá học <strong>Chính phục nghệ thuật Facebook Marketing</strong> sẽ giúp bạn nhanh chóng làm quen và hiểu được những bước chính để chạy một chiến dịch Facebook Marketing hiệu quả. Thay vì giải thích từ đầu tới cuối tất tần tật những tính năng của quảng cáo trên Facebook, khoá học tập trung vào giới thiệu chi 3 loại quảng cáo cần thiết nhất, để giúp bạn nhanh chóng bắt đầu chi sau 1 tiếng động hồ.</p>
+
+      <p>Nhưng trước hết, hãy cùng nhau tìm hiểu về những khái niệm cơ bản trước nào!</p>
+
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/dwSvpKN3zEI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+
+    <h2 class="section-title">Công thức 4 bước quảng cáo trên Facebook</h2>
+
+    <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 32px;">Bạn đã từng nghe nguyên tắc nổi tiếng 80/20 chưa? Theo nguyên tắc này, khoảng 80% kết quả là do 20% nguyên nhân gây ra. Nguyên tắc này có thể được áp dụng trong nhiều trường hợp, như 20% khách hàng đóng góp vào 80% doanh thu, 20% tính năng được khách hàng sử dụng 80% lượng thời gian sử dụng sản phẩm, v.v. Trong việc học quảng cáo trên Facebook cũng vậy, nếu cho rằng 100% là lượng thời gian bạn cần để học hết tất cả các tính năng của Facebook Ads, thì 80% thành công của bạn có thể đạt được sẽ chỉ cần 20% thời gian đó. Khoa học này sẽ giúp bạn tập trung vào cái 80% hiệu quả này. Sau khi đã qua khoá học, bạn có thể thực hành thêm và tự học các tính năng còn lại nếu cần.</p>
+
+    <div class="video-grid">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/HOCG-xOw6BY" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/yMSOkYi_rAo" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/p7sK-suEapo" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/H3BZSibVzXk" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+
+    <div class="bonus-section">
+      <h3>BONUS VIDEO</h3>
+      <div class="video-grid">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/-7SJexl3SQ8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/01qXN31JdJc" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-section">
+      <h3>Tài liệu thêm</h3>
+      <p style="font-size: 1.1rem; color: #555; margin-bottom: 24px;">50 ví dụ Facebook Ads cực đỉnh</p>
+      <div style="position: relative; width: 100%; height: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+        <iframe src="images1/facebookcourse/ad_examples.pdf" style="width: 100%; height: 100%; border: 0;"></iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clear Cache</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #ecebe4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 500px;
+    }
+    h1 {
+      color: #e67326;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #4db8d8;
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #3ca5c3;
+      transform: translateY(-2px);
+    }
+    .success {
+      color: #4db8d8;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      display: none;
+    }
+    .info {
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    ul {
+      text-align: left;
+      color: #777;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Xoá Cache / Reset Trạng Thái</h1>
+    <div class="info">
+      <p>Công cụ này sẽ xoá toàn bộ dữ liệu đã lưu trong trình duyệt, bao gồm:</p>
+      <ul>
+        <li>Trạng thái mở khoá các bài viết (index2.html)</li>
+        <li>Mã đã nhập để tải sách (index4.html)</li>
+        <li>Tất cả dữ liệu localStorage khác</li>
+      </ul>
+      <p><strong>Sau khi xoá, bạn sẽ cần nhập lại mã để mở khoá các sản phẩm.</strong></p>
+    </div>
+    
+    <button onclick="clearAllCache()">Xoá Toàn Bộ Cache</button>
+    <button onclick="clearArticlesCache()">Chỉ Xoá Cache Bài Viết</button>
+    
+    <div class="success" id="successMessage">✓ Đã xoá cache thành công!</div>
+  </div>
+
+  <script>
+    function clearAllCache() {
+      console.log('Clearing all cache...');
+
+      // Clear all localStorage
+      localStorage.clear();
+
+      // Also clear sessionStorage
+      sessionStorage.clear();
+
+      console.log('LocalStorage cleared:', localStorage.length === 0);
+      console.log('SessionStorage cleared:', sessionStorage.length === 0);
+
+      showSuccess();
+
+      // Force reload after showing message
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    }
+
+    function clearArticlesCache() {
+      console.log('Clearing articles cache...');
+
+      // Only clear articles unlock status
+      localStorage.removeItem('articlesUnlocked');
+
+      console.log('articlesUnlocked removed:', localStorage.getItem('articlesUnlocked') === null);
+
+      showSuccess();
+
+      // Force reload after showing message
+      setTimeout(() => {
+        window.location.href = 'index2.html';
+      }, 1500);
+    }
+
+    function showSuccess() {
+      const message = document.getElementById('successMessage');
+      message.style.display = 'block';
+    }
+
+    // Show current localStorage contents on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('Current localStorage contents:');
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        console.log(`  ${key}: ${localStorage.getItem(key)}`);
+      }
+    });
+  </script>
+</body>
+</html>

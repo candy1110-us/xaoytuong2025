@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - Xào Ý Tưởng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'HmtRegular';
+      src: url('HmtRegular-WRrv.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ecebe4;
+      background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="1" fill="%23d2d1c7"/></svg>');
+      background-size: 28px 28px;
+      min-height: 100vh;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Doodle decorations */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background: #6ba3ff;
+      width: 50vh;
+      height: 50vh;
+      top: 20%;
+      left: -10vh;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    body::after {
+      background: #4ecdc4;
+      width: 150px;
+      height: 150px;
+      bottom: 15%;
+      right: 8%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: auto;
+    }
+
+    h1 {
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 4.5rem;
+      color: #2d3436;
+      text-shadow: 3px 3px 0px rgba(107, 163, 255, 0.3);
+      display: inline-block;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #636e72;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+
+    /* Navigation */
+    .nav-menu {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .nav-menu a {
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 2rem;
+      color: #2d3436;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0 30px;
+    }
+
+    .nav-menu a:not(:last-child)::before {
+      content: '/';
+      position: absolute;
+      right: -2px;
+      color: #2d3436;
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 2rem;
+    }
+
+    .nav-menu a:hover {
+      color: #6ba3ff;
+      transform: translateY(-2px);
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #6ba3ff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu a.active {
+      color: #6ba3ff;
+      font-weight: 700;
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: 60px auto;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 3.5rem;
+      color: #2d3436;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 0px rgba(107, 163, 255, 0.3);
+    }
+
+    .contact-subtitle {
+      font-size: 1.3rem;
+      color: #636e72;
+      margin-bottom: 50px;
+      line-height: 1.6;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-item {
+      padding: 15px 20px;
+      display: grid;
+      grid-template-columns: 60px 180px 1fr;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(10px);
+    }
+
+    .contact-label {
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin-bottom: 0;
+      display: block;
+    }
+
+    .contact-link {
+      font-size: 1.1rem;
+      color: #6ba3ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      word-break: break-word;
+    }
+
+    .contact-link:hover {
+      color: #4a8ae8;
+      text-decoration: underline;
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .icon-image {
+      width: auto;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* Doodle arrows */
+    .doodle-arrow {
+      position: absolute;
+      width: 80px;
+      height: 60px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .arrow-1 {
+      top: 15%;
+      right: 10%;
+      transform: rotate(-15deg);
+    }
+
+    .arrow-2 {
+      bottom: 20%;
+      left: 8%;
+      transform: rotate(165deg);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      .contact-title {
+        font-size: 2.5rem;
+      }
+
+      .contact-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .contact-methods {
+        gap: 20px;
+      }
+
+      .contact-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 10px;
+        padding: 15px;
+      }
+
+      .contact-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .nav-menu a {
+        font-size: 1.5rem;
+        padding: 0 15px;
+      }
+
+      .icon-image {
+        width: auto;
+        height: 50px;
+      }
+
+      .contact-label {
+        font-size: 1.3rem;
+        min-width: auto;
+      }
+
+      .contact-link {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Reload GIF every 30 seconds to replay it
+    setInterval(function() {
+      const gifElement = document.querySelector('.profile-image');
+      const timestamp = new Date().getTime();
+      gifElement.src = 'images/mefn.gif?t=' + timestamp;
+    }, 30000); // 30 seconds
+  </script>
+
+  <!-- Doodle decorations -->
+  <svg class="doodle-arrow arrow-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 10 50 Q 30 30, 50 50 T 90 50" stroke="#6ba3ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 90 50 L 80 45 M 90 50 L 85 60" stroke="#6ba3ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <svg class="doodle-arrow arrow-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 10 50 Q 30 30, 50 50 T 90 50" stroke="#4ecdc4" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 90 50 L 80 45 M 90 50 L 85 60" stroke="#4ecdc4" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <img src="images/mefn.gif" alt="Xào Ý Tưởng illustration" class="profile-image">
+        <h1>Xào Ý Tưởng</h1>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">Dự án</a>
+        <a href="#about">Về Xào</a>
+        <a href="#blog">Blog</a>
+        <a href="contact.html" class="active">Liên hệ</a>
+      </nav>
+    </header>
+
+    <div class="contact-container">
+      <!-- <h2 class="contact-title">Liên hệ</h2> -->
+      <!-- <p class="contact-subtitle">Hãy kết nối với chúng mình qua các kênh sau nhé!</p> -->
+
+      <div class="contact-methods">
+        <div class="contact-item">
+          <img src="images/lienhe1.png" alt="Email icon" class="icon-image">
+          <span class="contact-label">Email</span>
+          <a href="mailto:lienhe@xaoytuong.com" class="contact-link">lienhe@xaoytuong.com</a>
+        </div>
+
+        <div class="contact-item">
+          <img src="images/lienhe2.png" alt="Facebook icon" class="icon-image">
+          <span class="contact-label">Facebook</span>
+          <a href="https://facebook.com/xaoytuong" target="_blank" class="contact-link">facebook.com/xaoytuong</a>
+        </div>
+
+        <div class="contact-item">
+          <img src="images/lienhe3.png" alt="YouTube icon" class="icon-image">
+          <span class="contact-label">YouTube</span>
+          <a href="https://youtube.com/c/xaoytuong" target="_blank" class="contact-link">youtube.com/c/xaoytuong</a>
+        </div>
+
+        <div class="contact-item">
+          <img src="images/lienhe4.png" alt="Newsletter icon" class="icon-image">
+          <span class="contact-label">Newsletter</span>
+          <a href="#newsletter" class="contact-link">Đăng ký nhận tin</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

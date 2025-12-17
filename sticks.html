@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>120 Que Chiến Thuật</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'HmtRegular';
+      src: url('HmtRegular-WRrv.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    body {
+      font-family: 'BeVietnamPro', sans-serif;
+      background-color: #ecebe4;
+      background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="1" fill="%23d2d1c7"/></svg>');
+      background-size: 28px 28px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      background: #4db8d8;
+      width: 50vh;
+      height: 50vh;
+      top: 20%;
+      left: -10vh;
+      animation: float 6s ease-in-out infinite;
+    }
+    body::after {
+      background: #ff8c42;
+      width: 150px;
+      height: 150px;
+      bottom: 15%;
+      right: 8%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .site-title {
+      position: fixed;
+      top: 85px;
+      left: 20px;
+      z-index: 100;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      width: 60px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 5rem;
+      color: #e67326;
+      margin-bottom: 24px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      text-align: center;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1.3rem;
+      color: #555555;
+      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+    .button-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #4db8d8;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: 'BeVietnamPro', sans-serif;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #3ca5c3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .btn-secondary {
+      background-color: #e67326;
+    }
+    .btn-secondary:hover {
+      background-color: #d5631e;
+    }
+    .pdf-pages-container {
+      width: 100%;
+      max-height: 800px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .pdf-page {
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: transparent;
+    }
+    .pdf-page:last-child {
+      margin-bottom: 0;
+    }
+    .pdf-page canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+    .loading-message {
+      text-align: center;
+      padding: 40px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .stick-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100px;
+      margin-bottom: 24px;
+    }
+    .stick-container {
+      position: relative;
+      width: 85%;
+      max-width: 750px;
+      background: linear-gradient(135deg, #e67326 0%, #ff8c42 50%, #e67326 100%);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(230, 115, 38, 0.3);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 16px 28px;
+      opacity: 0;
+      transform: scale(0.9) translateY(10px);
+      transition: all 0.5s cubic-bezier(.22,1,.36,1);
+    }
+    .stick-container.show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    .stick-number {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-right: 18px;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .stick-text {
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ffffff;
+      text-align: left;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      .stick-container {
+        width: 95%;
+        padding: 20px 24px;
+      }
+      .stick-text {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      .stick-number {
+        font-size: 1.5rem;
+        margin-right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">
+    <img src="images/mefn.gif" alt="Logo">
+  </a>
+  <div class="site-title">Xào</div>
+
+  <div class="container">
+    <h1>120 Que Chiến Thuật</h1>
+    <p class="subtitle">Rút que ngẫu nhiên để khám phá chiến thuật đột phá ý tưởng</p>
+
+    <div class="button-container">
+      <button class="btn btn-secondary" onclick="pickRandomStick()">Rút que ngẫu nhiên</button>
+      <a href="images1/Que/Que.pdf" target="_blank" class="btn">Tải PDF file</a>
+    </div>
+
+    <div class="stick-display">
+      <div id="stickContainer" class="stick-container" style="display: none;">
+        <div id="stickNumber" class="stick-number"></div>
+        <div id="stickText" class="stick-text"></div>
+      </div>
+    </div>
+
+    <div id="exampleContainer" style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+      <h2 style="font-family: 'BeVietnamPro', sans-serif; font-size: 1.2rem; color: #e67326; margin-bottom: 16px;">Ví dụ minh họa</h2>
+      <div class="pdf-pages-container" id="pdfPagesContainer">
+        <div class="loading-message">Đang tải PDF...</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configure PDF.js worker
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+
+    let pdfDoc = null;
+    let isPdfLoaded = false;
+
+    // Load PDF on page load
+    async function loadPDF() {
+      const container = document.getElementById('pdfPagesContainer');
+
+      try {
+        const loadingTask = pdfjsLib.getDocument({
+          url: 'images1/queeg.pdf',
+          withCredentials: false,
+          cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+          cMapPacked: true
+        });
+
+        pdfDoc = await loadingTask.promise;
+        console.log('PDF loaded successfully, total pages:', pdfDoc.numPages);
+
+        const totalPages = pdfDoc.numPages;
+        container.innerHTML = '';
+
+        // Render all pages
+        for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+          try {
+            const page = await pdfDoc.getPage(pageNum);
+
+            // Calculate scale to fit the container width
+            const containerWidth = container.offsetWidth || 1200;
+            const pageViewport = page.getViewport({ scale: 1.0 });
+            const scale = containerWidth / pageViewport.width;
+            const viewport = page.getViewport({ scale: scale });
+
+            // Create page container
+            const pageDiv = document.createElement('div');
+            pageDiv.className = 'pdf-page';
+
+            // Create canvas
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d', { alpha: false });
+
+            // Set canvas dimensions
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // Render PDF page into canvas
+            const renderContext = {
+              canvasContext: context,
+              viewport: viewport,
+              background: 'white'
+            };
+
+            await page.render(renderContext).promise;
+
+            pageDiv.appendChild(canvas);
+            container.appendChild(pageDiv);
+
+          } catch (pageError) {
+            console.error('Error rendering page', pageNum, ':', pageError);
+          }
+        }
+
+        isPdfLoaded = true;
+
+      } catch (error) {
+        console.error('Error loading PDF:', error);
+        container.innerHTML = '<div class="loading-message" style="color: #ff4444;">Không thể tải PDF. Vui lòng thử lại sau.</div>';
+      }
+    }
+
+    const strategies = [
+      "Đơn giản hóa thiết kế, dịch vụ, chức năng.",
+      "Xây dựng một cộng đồng (ví dụ: bộ lạc người tiêu dùng)",
+      "Kết nối với lịch sử và những xu hướng trong quá khứ",
+      "Giảm thời gian cho đến lúc có thể sử dụng được",
+      "Các giải pháp công nghệ thấp / không dùng công nghệ rườm rà",
+      "Cung cấp đề xuất vào đúng thời điểm để giúp thay đổi hành vi",
+      "Cho người dùng biết tiến trình và bao xa cho đến mục tiêu cuối",
+      "Cung cấp báo cáo về những gì đã làm, kết quả và tầm ảnh hưởng",
+      "Giúp người dùng theo sát dự định / thời gian biểu họ đặt ra",
+      "Giúp người dùng có thể làm nhiều việc cùng một lúc",
+      "Giúp giảm stress hoặc có tự hào khi đạt được mục tiêu nào đó",
+      "Thêm yếu tố khó chịu để giúp người dùng bỏ hành động nào đó",
+      "Thêm cách tính điểm số ngay lập tức",
+      "Khiến người dùng cảm thấy áp lực phải làm gì đó giống bạn bè",
+      "Tạo ra phiên bản chất lượng cao cho sản phẩm miễn phí của bạn",
+      "Tạo thêm sản phẩm / dịch vụ liên quan đến sản phẩm chính",
+      "Bán hàng hóa với hình ảnh và tên tuổi nổi tiếng?",
+      "Thay đổi tốc độ: làm sản phẩm nhanh lên hoặc chậm đi",
+      "Dựa trên vị trí / định vị của người dùng",
+      "Thay đổi đối tượng của sản phẩm",
+      "Thêm cá tính nhân vật độc đáo cho sản phẩm của bạn",
+      "Thiết kế phù hợp với các cuộc tụ họp với bạn bè người quen",
+      "Giúp khách hàng thanh toán dễ dàng hơn",
+      "Làm cho nó lớn hơn",
+      "Làm cho nó chính xác hoặc chi tiết hơn",
+      "Tự động hoá sản phẩm",
+      "Làm một phần của sản phẩm có thể dễ dàng tháo rời / hoán đổi",
+      "Cho nó hình dạng hoặc cái nhìn truyền thống hơn",
+      "Thay thế một thành phần / nguyên liệu bằng loại khác",
+      "Thêm chi tiết dựa trên cơ sở khoa học hoặc dữ liệu có sẵn",
+      "Làm cho sản phẩm mang tính nghệ thuật hơn",
+      "Làm sản phẩm dẻo, linh hoạt hơn, hoặc có tính đàn hồi cao hơn",
+      "Làm cho nó dễ học / dễ hiểu hơn",
+      "Bắt chước tự nhiên hoặc một quá trình tự nhiên",
+      "Làm nổi trên nước, không thấm nước, dùng được trong nước",
+      "Cho sản phẩm một chủ đề hoặc cái nhìn nhất quán",
+      "Để người dùng tự làm một công đoạn nào đó",
+      "Giúp sản phẩm tự động khởi động và tắt khi cần thiết",
+      "Làm những phần nào 2D thành 3D",
+      "Chia sản phẩm thành nhiều phần có thể ghép/phối hợp với nhau",
+      "Cho phép sản phẩm được kích hoạt bằng nhiều cách khác nhau",
+      "Làm nó thích ứng với thay đổi của các biến số khác nhau",
+      "Thêm âm nhạc hoặc làm âm thanh của nó tốt hơn",
+      "Cho nó một chủ đề liên quan đến thức ăn",
+      "Khuyến khích người dùng có thái độ lạc quan và tích cực hơn",
+      "Tăng hoặc giảm lượng thông tin cung cấp cùng với sản phẩm",
+      "Thay đổi bề mặt / cảm giác khi người dùng chạm vào sản phẩm",
+      "Làm cho nó mạnh mẽ, chắc chắn & bền hơn, không thể phá vỡ",
+      "Thúc đẩy làm việc theo nhóm, giải quyết tốt hơn nhu cầu nhóm",
+      "Làm cho nó dễ kết hợp và sử dụng với những sản phẩm khác",
+      "Tạo hệ thống cảnh báo sớm để thông báo vấn đề",
+      "Thêm tính năng liên quan đến giọng nói",
+      "Tăng tính tương tác với người dùng",
+      "Làm một chi tiết nào đó ngẫu nhiên hơn hoặc theo thứ tự khác",
+      "Làm cho táo bạo hơn",
+      "Tận dụng lợi thế của công nghệ video",
+      "Trang bị không gian đầy đủ và phong phú hơn",
+      "Làm nó thoải mái hơn",
+      "Thêm chức năng bảo mật; Làm nó an toàn hơn cho người dùng",
+      "Làm nó dày đặc / đậm đặc / đông đúc hơn",
+      "Làm nó yên tĩnh, nhẹ nhàng, hoặc mịn mượt hơn",
+      "Làm cho nó dễ dàng phóng to thu nhỏ / thu gọn lại",
+      "Thay đổi khoảng cách hoặc thời gian giữa các thành phần",
+      "Làm cho nó tốt cho sức khoẻ",
+      "Làm cho nó động hơn",
+      "Thay đổi màu sắc hoặc độ nhám của nó",
+      "Tăng / giảm tần số",
+      "Làm thế nào để đứa trẻ hoặc người lớn tuổi sử dụng được nó?",
+      "Làm cho nó ăn được",
+      "Làm cho nó đa giác quan hơn (sờ, ngửi, nghe được, v.v.)",
+      "Làm chi phí hoặc giá thấp hơn",
+      "Làm sản phẩm hoặc dịch vụ thân thiện hơn với môi trường",
+      "Lựa chọn một nhóm người dùng mục tiêu mới",
+      "Làm cho mọi người cảm thấy gần gũi ngay cả khi họ xa nhau",
+      "Khuyến khích tương tác giữa mọi người",
+      "Giúp người dùng yên tâm hơn",
+      "Tạo ra một dịch vụ đăng ký hàng tháng / hàng quý / hàng năm",
+      "Thêm nhiều loại đa dạng hơn",
+      "Cho phép người dùng thay đổi cấu hình / giao diện",
+      "Làm nó thân thiện hơn với nhiều loại người dùng khác nhau",
+      "Thêm yếu tố nào đó dựa trên tin tức, xu hướng đang hot",
+      "Giúp cải thiện mối quan hệ giữa người với người",
+      "Đặt sản phẩm trong một cái khung hoặc hộp",
+      "Làm cho nó dễ cầm hoặc di chuyển hơn",
+      "Làm nó bớt dày đặc / đậm đặc / đông đúc hơn",
+      "Làm cho nó không có một hình dạng nhất định",
+      "Tùy chỉnh hàng loạt (cá nhân hóa sản phẩm hàng loạt)",
+      "Làm cho nó nhỏ hơn",
+      "Đặt người dùng vào tình huống mới mẻ mà họ chưa từng thử",
+      "Thêm phần thưởng để kích thích tò mò và tạo hứng thú",
+      "Cá nhân hoá sản phẩm",
+      "Sử dụng màu sắc khó chấp nhận",
+      "Bỏ đi chi tiết quan trọng nhất",
+      "Lặp lại yếu tố hoặc tạo bản sao cho yếu tố nào đó của sản phẩm",
+      "Nhìn kỹ vào chi tiết tệ nhất và khuếch đại chúng",
+      "Nâng cao giá trị bằng cách tạo ra câu chuyện / bao bì tốt hơn",
+      "Giảm chi tiết chung chung và chuyển đổi thành chi tiết cụ thể",
+      "Giảm tính cụ thể và chuyển đổi sang cái gì đó chung chung",
+      "Làm sản phẩm hòa trộn, nhập vào với môi trường xung quanh",
+      "Làm cho nó phát sáng",
+      "Cho sản phẩm một khía cạnh hài hước",
+      "Làm cho nó đa chức năng",
+      "Làm cho nó phản ứng nhanh hơn với sự thay đổi nhiệt độ",
+      "Đảo ngược chuỗi sự kiện và hoạt động của sản phẩm",
+      "Bỏ qua một bước nào đó",
+      "An toàn cho trẻ em hoặc thú cưng",
+      "Ngụy trang để trông giống như một cái gì đó hoàn toàn khác.",
+      "Làm nó dễ rửa và làm sạch hơn",
+      "Dùng vật liệu công nghệ cao hoặc liên quan đến vũ trụ",
+      "Làm cho nó tĩnh / không di chuyển được",
+      "Cho nó một hình dạng ít truyền thống hơn",
+      "Chèn vào một yếu tố bất ngờ",
+      "Giúp khách hàng thay đổi thói quen hoặc hành vi",
+      "Loại bỏ hầu hết hoặc tất cả các phần không quan trọng",
+      "Sử dụng thành phần hoặc vật liệu khác",
+      "Tìm chi tiết có thể phóng đại hoặc cường điệu",
+      "Làm ngược lại với dự định ban đầu",
+      "Tạo một cảm xúc khác khi sử dụng sản phẩm",
+      "Nếu như tiền không là vấn đề?",
+      "Thêm hương vị"
+    ];
+
+    function pickRandomStick() {
+      const stickContainer = document.getElementById('stickContainer');
+      const stickNumber = document.getElementById('stickNumber');
+      const stickText = document.getElementById('stickText');
+
+      // Show container if hidden
+      if (stickContainer.style.display === 'none') {
+        stickContainer.style.display = 'flex';
+      }
+
+      // Hide current stick with animation
+      stickContainer.classList.remove('show');
+
+      // Wait for fade out, then update content
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * strategies.length);
+        const strategyNumber = randomIndex + 1;
+
+        stickNumber.textContent = `#${strategyNumber}`;
+        stickText.textContent = strategies[randomIndex];
+
+        // Show new stick with animation
+        setTimeout(() => {
+          stickContainer.classList.add('show');
+        }, 50);
+      }, 400);
+    }
+
+    // Load PDF on page load
+    window.addEventListener('load', () => {
+      loadPDF();
+    });
+  </script>
+</body>
+</html>

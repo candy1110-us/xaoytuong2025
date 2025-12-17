@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airbnb - từ một con kỳ lân công nghệ trở thành bao công ty trong ngành khách sạn khác</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'HmtRegular';
+      src: url('../HmtRegular-WRrv.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ecebe4;
+      background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="1" fill="%23d2d1c7"/></svg>');
+      background-size: 28px 28px;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #fcfcf7;
+      background-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" fill="none"/><line x1="0" y1="0" x2="0" y2="32" stroke="%23ececec" stroke-width="1"/><line x1="0" y1="0" x2="32" y2="0" stroke="%23ececec" stroke-width="1"/></svg>');
+      background-size: 32px 32px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 40px 32px;
+    }
+    h1 {
+      color: #222;
+      margin-bottom: 16px;
+    }
+    .desc {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    a.back {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #222;
+      text-decoration: none;
+      font-weight: 700;
+      background: #fff475;
+      padding: 10px 28px 10px 18px;
+      border-radius: 8px 24px 8px 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      position: relative;
+      font-size: 1.75rem;
+      transform: rotate(-2deg);
+      transition: box-shadow 0.15s, background 0.15s;
+      font-family: 'HmtRegular', 'Inter', sans-serif;
+    }
+    a.back::after {
+      content: '';
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%) rotate(15deg);
+      width: 0; height: 0;
+      border-left: 10px solid #f4d35e;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-radius: 2px;
+    }
+    a.back:hover {
+      background: #ffe066;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    img, video {
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 24px auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .gif {
+      max-width: 500px;
+      width: 100%;
+      display: block;
+      margin: 24px auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    p {
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+    h3 {
+      margin-top: 32px;
+      margin-bottom: 16px;
+      color: #222;
+    }
+    h4 {
+      margin-top: 24px;
+      margin-bottom: 12px;
+      color: #333;
+    }
+    ul, ol {
+      line-height: 1.8;
+      margin-bottom: 20px;
+      padding-left: 32px;
+      color: #333;
+    }
+    li {
+      margin-bottom: 12px;
+    }
+    .definition-quote {
+      background-color: #fffbf0;
+      border-left: 4px solid #f4d35e;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .definition-quote p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index2.html" class="back">← Quay lại danh sách bài viết</a>
+    <h1>Airbnb - từ một con kỳ lân công nghệ trở thành bao công ty trong ngành khách sạn khác</h1>
+    
+    <div class="definition-quote">
+      <p><strong>Định nghĩa:</strong> Sharing economy, hay kinh tế chia sẻ, là mô hình kinh tế nơi mọi người có thể chia sẻ tài sản, dịch vụ hoặc sản phẩm dư thừa của họ cho người khác thông qua các ứng dụng hoặc nền tảng kỹ thuật số.</p>
+    </div>
+
+    <h2>3 Nhận thức sai lầm về mô hình kinh doanh của Airbnb</h2>
+    
+    <p>Chắc hẳn nhiều người từng nghĩ rằng Airbnb là công ty đầu tiên giới thiệu và đẩy mạnh khái niệm "nền kinh tế chia sẻ" bằng cách cho phép bất cứ ai cho thuê phòng ngủ trống trong nhà của mình với những du khách cần chỗ ở. Nhưng thực chất họ không phải là công ty phát minh ra khái niệm này (câu trả lời đúng là eBay).</p>
+
+    <p>Không những thế, có rất nhiều nhận thức sai lầm về mô hình kinh doanh của Airbnb mà phần lớn những ai không làm ngành dịch vụ khách sạn – nhà hàng – du lịch (hospitality industry) hiểu được. Trong bài viết này, chúng ta sẽ phá vỡ 3 nhận thức sai lầm lớn nhất về Airbnb và đào sâu vào lý do thực sự tại sao họ lại trở thành một trong những con kỳ lân lớn nhất trong thập niên 2010.</p>
+
+    <h3>Nhận thức sai lầm #1: Airbnb đang đe doạ sự sống còn của ngành khách sạn</h3>
+    
+    <p>Doanh thu vào 2023 của Airbnb là $9.9 tỷ USD. Còn của ngành khách sạn toàn cầu thì khoảng $600-700 tỷ USD. Nếu tính về số đêm phòng được đặt trên Airbnb và so với khách sạn thì sự khác biệt cũng tương tự. Thế nhưng với xu hướng Airbnb lan toả khắp nơi, rất nhiều người nghĩ rằng Airbnb thống trị thị trường và đang đe doạ sự sống còn của ngành khách sạn.</p>
+
+    <p><b>Sự thật là: Airbnb chỉ thống trị một phân khúc cụ thể của thị trường, không phải toàn bộ thị trường.</b> Phân khúc này bao gồm những người dùng như sau:</p>
+
+    <ul>
+      <li>Du lịch giải trí, đặc biệt là cho nhóm (Gia đình và nhóm bạn muốn cả một ngôi nhà)</li>
+      <li>Du khách lưu trú dài hạn: Người làm việc từ xa, di dời, du lịch kéo dài</li>
+      <li>Du khách muốn tìm chỗ ở độc lạ: Nhà trên cây, thuyền, lâu đài—những thứ khách sạn không dễ dàng tái tạo được</li>
+      <li>Du khách nhạy cảm về giá: Người sẵn sàng đánh đổi nhiều thứ để tiết kiệm</li>
+    </ul>
+
+    <p>Nhưng khách sạn vẫn sở hữu những phân khúc <b>có khả năng chi trả cao hơn</b> và vì thế tạo ra nguồn doanh thu lớn hơn rất nhiều như:</p>
+
+    <ul>
+      <li>Du lịch để công tác (đây là nhóm rất lớn với túi tiền khủng, đặc biệt là ở các nước phát triển)</li>
+      <li>Du lịch cao cấp nơi tính nhất quán và chất lược là cực kỳ quan trọng</li>
+      <li>Cho những du khách đặt phòng phút chót và cần sự chắc chắn là phòng sẽ có và tốt</li>
+      <li>Cho những du khách cần nhiều tiện nghi như phòng gym, dịch vụ phòng, lễ tân, v.v.</li>
+    </ul>
+
+    <p>Bạn nghĩ xem, khi bạn đi công tác để gặp khách hàng, hay đặt phòng cho tuần trăng mật, bạn có liều đặt phòng ở trong nhà người khác không? Những đối tượng có tiền và cần tiện nghi đầy đủ không phải là đối tượng của Airbnb. Thế nên trên thực tế, Airbnb chỉ là một con cá lớn bơi trong một cái hồ bé; họ thống trị một vài phân khúc nhưng nó không đồng nghĩa với việc thống trị thị trường. Dữ liệu tăng trưởng cũng chứng minh điều này: trong khoảng thời gian nhiều năm khi Airbnb đang nổi lên và hot dữ dội thì ngành khác sạn nhìn chung và thị trường du lịch nói riêng cũng tăng trưởng nhanh. Airbnb tạo ra nguồn cung mới cho những người có nhu cầu khác biệt, chứ không ăn đi mấy nguồn khách của các khách sạn khác.</p>
+    <img src="article9/9.1.jpg">
+    <h3>Nhận thức sai lầm #2: Airbnb là nền tảng (platform) kết nối du lịch trực tuyến đầu tiên</h3>
+    
+    <p>Booking.com, Expedia, Hotels.com là những nền tảng kết nối du khách với chỗ ở trực tuyến hoạt động nhiều năm trước Airbnb. Booking.com được thành lập năm 1996, khi mà internet còn chậm như rùa. Những nền tảng này hiện là thị trường hai chiều với nhiều chức năng bao gồm những thứ Airbnb cũng có như hệ thống đánh giá (rating) từ người tiêu dùng, và cả cơ sở hạ tầng hỗ trợ khách hàng, v.v.</p>
+
+    <p><b>Mặc dù không phải là công ty phát minh ra nền tảng kết nối người du lịch với nơi ở khi du lịch, Airbnb mang tới một điểm mới, đó là họ cho phép bên cung cấp nơi ở trên nền tảng là bất kỳ ai có nhà hoặc phòng dư trong nhà.</b> Nguồn cung này trước đó thường chỉ thu hẹp trong những tổ chức thương mại, nhà nghỉ, khách sạn thông thường.</p>
+    <img src="article9/9.2.jpg">
+    <h3>Nhận thức sai lầm #3: Airbnb phát minh ra mô hình kinh doanh cho thuê phòng mà không dựa vào việc phải bỏ tiền mua và sở hữu phòng cho thuê</h3>
+    
+    <p>Đây còn được gọi là mô hình "nhẹ tài sản", tiếng anh là Asset-light. Nó giúp giảm thiểu sở hữu tài sản cố định vật lý (như nhà máy, máy móc, bất động sản) bằng cách tận dụng các nguồn lực bên ngoài như đối tác, thuê nhà thầu, hoặc sử dụng nền tảng kỹ thuật số. Mục tiêu là giảm chi phí đầu tư vốn, tăng tính linh hoạt và khả năng mở rộng thị trường nhanh chóng của công ty.</p>
+
+    <p>Với Airbnb chẳng hạn, phòng ốc mà họ đăng trên app đều là của người tham gia vào nền tảng – Airbnb không hề sở hữu bất kỳ một căn phòng nào, và vì thế rủi ro phòng không có người đặt, hoặc phòng ốc có vấn đề cần sửa chửa, chỉnh chu, Airbnb đều không phải lo. Chính vì thế độ rủi ro của họ có vẻ thấp hơn hẳn so với các khách sạn lớn khác.</p>
+
+    <p>Nhưng trên thực tế, ngành khách sạn thực ra đã chuyển qua hệ thống này từ nhiều thập kỷ rồi. Những ông trùm khách sạn mà bạn hay nghe tới như Mariott, Hilton, IHG, thực ra chỉ sở hữu dưới 2% khách sạn mang tên họ. Họ chủ yếu kiếm tiền thông qua việc cấp phép sử dụng thương hiệu và hợp đồng giúp quản lý khách sạn cho các chủ bất động sản khác - những người có đất và có tiền xây khách sạn để kinh doanh. Trong mô hình cho thuê / nhượng quyền sử dụng thương hiệu này, các công ty mẹ (Mariott, Hilton, v.v.) sẽ giúp đào tạo nhân viên và cài đặt hệ thống đặt phòng, đặt ra tiêu chuẩn hoạt động, v.v. và thay vào đó được chia doanh thu 4-6% doanh thu phòng ngoài các khoản phí khác. Nhờ có mô hình này, các thương hiệu khách sạn lớn không chỉ lấy được nhiều lợi nhuận mà không sợ rủi ro, mà còn có thể mở rộng nhanh chóng ra toàn thế giới.</p>
+    <img src="article9/9.3.jpg">
+    <p><b>Mặc dù không phải là người phát minh ra mô hình nhẹ tài sản, Airbnb mở rộng mô hình này để bao gồm người dân thường </b>chứ không chỉ những ông trùm có tiền xây khách sạn trên những mảnh đất lớn. Hộ phân tán nguồn "cung" đến tất cả mọi người.</p>
+
+    <h2>Vì sao Airbnb vẫn được coi là con kỳ lân mang tới nhiều đổi mới trong ngành công nghệ và khách sạn?</h2>
+    
+    <p>Nếu Airbnb không phát minh ra những khái niệm / mô hình kinh doanh trên, họ đã làm gì để được tung hô đến vậy?</p>
+
+    <h3>Đổi mới #1: Kết hợp khái niệm cũ cho phân khúc mới</h3>
+    
+    <p>Đổi mới 1 nằm ở chỗ họ biết cách <b>kết hợp các khái niệm đã có và áp dụng vào để mở rộng dân chủ hoá ngành khách sạn, phục vụ phân khúc trước giờ chưa được đáp ứng nhu cầu.</b></p>
+
+    <p>Cụ thể là, Airbnb lấy các khái niệm như nền tảng du lịch trực tuyến (từ Booking.com, Expedia), mô hình nhẹ tài sản (từ nhiều thập kỷ trong ngành khách sạn), và thị trường ngang hàng (peer-to-peer, từ eBay, Craigslist). Sau đó kết hợp chúng và áp dụng mở khóa nguồn cung mới: <b>phòng trống trong nhà của tất cả mọi người.</b> Bất cứ ai cũng có thể là chủ nhà và cạnh tranh với Hilton  Đây là "dân chủ hoá" nguồn cung.</p>
+
+    <p>Hơn thế nữa, như đã phân tích ở phần 1, đối tượng người dùng mục tiêu của Airbnb có nhu cầu khá khác biệt với khách sạn và có mong muốn trải nghiệm mang tính địa phương độc đáo, rẻ. Đây là phân khúc mới trong ngành.</p>
+
+    <p>Bài học ở đây là: Đổi mới không chỉ cần dựa vào phần phát minh đơn lẻ, nó còn có thể đến từ <b>sự kết hợp các ý tưởng và mô hình kinh doanh độc đáo cho đối tượng mới.</b></p>
+    <img src="article9/9.4.jpg">
+    <h3>Đổi mới #2: Giải quyết vấn đề "niềm tin của khách hàng" trên quy mô lớn</h3>
+    
+    <p>Trước khi có Airbnb, thuê phòng từ một người lạ trên internet nghe thực sự điên rồ và không ai dám làm cả. Cũng giống như trước Uber không ai dám leo lên đi xe của người lạ mà không phải taxi. Để vượt qua trở ngại "thiếu niềm tin" từ khách hàng này, Airbnb đã tạo ra một hệ thống như sau:</p>
+
+    <ul>
+      <li><strong>Hồ sơ kiểm duyệt người cho thuê lẫn khách thuê:</strong> với ảnh, huy hiệu xác minh, kiểm tra ID chính phủ, v.v. Nhờ đó, cả chủ nhà và khách đều như người thật chứ không phải người lạ ẩn danh trên internet.</li>
+      <li><strong>Hệ thống đánh giá "đồng thời":</strong> khách thuê và chủ nhà không thể thấy đánh giá của nhau cho đến khi họ để lại đánh giá của riêng mình. Biện pháp này giúp ngăn chặn việc đánh giá thấp chỉ để trả thù, và tăng cường tính trung thực của bài viết đánh giá.</li>
+      <li><strong>Bảo vệ "tiền thanh toán" cho cả chủ nhà và người đặt phòng:</strong> Airbnb là trung gian giữ số tiền thanh toán trong 24 giờ sau khi nhận phòng. Bằng cách này nếu khách cảm thấy nhà không đủ chất lượng thì họ có thể đòi hoàn tiền dễ dàng. Và chủ nhà cũng cảm thấy an toàn vì biết rằng khách sẽ không quỵt được tiền sau khi dùng phòng.</li>
+      <li><strong>Chương trình chụp ảnh phòng chuyên nghiệp, miễn phí trong những ngày đầu:</strong> Nhờ có hình ảnh đẹp và chính xác chụp từ thợ chuyên nghiệp, phòng cho thuê trông có vẻ hợp pháp hơn, giúp chủ nhà cho thuê dễ dàng hơn và người dùng tin tưởng vào chất lượng phòng thuê hơn.</li>
+    </ul>
+
+    <p>Một lần nữa, những tính năng trên không phải mới: eBay trước đó đã có sử dụng hệ thống đánh giá đồng thời, PayPal có hệ thống bảo vệ "tiền thanh toán" bằng cách giữ tiền trong một khoảng thời gian cố định, v.v. Nhưng sự kết hợp các tính năng này và áp dụng vào ngành khách sạn là một combo mới, giúp giải quyết vấn đề trước đây chưa được giải quyết trong ngành cho thuê phòng du lịch.</p>
+
+    <h3>Cộng thêm sự may mắn trong việc lựa chọn thời điểm tung ra thị trường</h3>
+    
+    <p>Airbnb ra mắt vào tháng 8 năm 2008 trong một bối cảnh đặc biệt:</p>
+
+    <ul>
+      <li>Đại Suy Thoái kinh tế tại Mỹ vừa bắt đầu, dẫn tới việc người dân săn tìm cách kiếm thêm thu nhập (từ phòng trống trong nhà của họ), và du khách cũng muốn lựa chọn rẻ hơn. Cả hai phía của thị trường (người cho thuê và người muốn thuê phòng) đều có động lực kinh tế mạnh mẽ để thử mô hình và sản phẩm mới.</li>
+      <li>iPhone đã ra mắt một năm trước đó (2007) – có nghĩa là internet nằm trong tầm tay của người dùng, và vì thế các ứng dụng dễ dàng truy cập hơn.</li>
+      <li>Mạng xã hội đang bình thường hóa việc chia sẻ thông tin cá nhân trực tuyến (Facebook, Twitter phát triển nhanh)</li>
+      <li>"Nền kinh tế chia sẻ" đang lên ngôi, phát triển từ xu hướng bảo vệ môi trường và tiết kiệm từ việc chia sẻ vật dụng hàng hoá trong cộng đồng thay vì mua sắm phung phí.</li>
+    </ul>
+
+    <p>Bối cảnh này thực sự hoàn hảo để tung ra Airbnb.</p>
+
+    <p>Nói tóm lại, để có cơ hội trở thanh kỳ lân khởi nghiệp, một ý tưởng khởi nghiệp thường phải:</p>
+    <ul>
+      <li>Kết hợp các khái niệm hiện có theo cách mới</li>
+      <li>Giải quyết ít nhất một vấn đề nhức nhối chưa được giải quyết trước đó</li>
+      <li>Và ra mắt vào đúng thời điểm khi điều kiện thị trường phù hợp</li>
+    </ul>
+
+    <h2>Airbnb dần mất đi sự quyết rũ ban đầu</h2>
+    
+    <p>Mặc dù thành công rạng rỡ trong nhiều năm, Airbnb đang dần mất đi sự quyến rũ trong 2-3 năm đổ lại và càng ngày càng hoạt động như một chuỗi khách sạn lớn.</p>
+
+    <h3>Vấn đề #1: Bùng nổ phí</h3>
+    
+    <p>Trong những ngày đầu, lời chào hàng của Airbnb khá đơn giản: "Tại sao lại trả $150 cho khách sạn khi bạn có thể ở trong căn hộ của người địa phương chỉ với $60?"</p>
+
+    <p>Còn bây giờ, trải nghiệm đặt trên Airbnb điển hình sẽ như thế này:</p>
+    <ul>
+      <li>Giá mỗi đêm: $120 (không đến nỗi tệ)</li>
+      <li>Phí dọn dẹp: $85 (Hơn 50% giá phòng???)</li>
+      <li>Phí dịch vụ: $35 (hoa hồng cho Airbnb)</li>
+      <li>Thuế địa phương: $18</li>
+      <li>Tổng cộng: $258 cho một đêm</li>
+    </ul>
+    <img src="article9/Picture1.jpg">
+
+    <p>Bỗng nhiên số tiền bạn phả trả cho một phòng ở khách sạn Marriott ($200) với bữa sáng miễn phí và hồ bơi trông lại tốt hơn.</p>
+
+    <p>Nhưng vì sao giá của Airbnb bỗng nhiên lại tăng cao đến vậy? Vì trong những ngày đầu, Airbnb cũng như những người cho thuê trên nền tảng của họ cố ý "hạ thấp" hoặc "trợ cấp" giá bằng cách giảm đi các chi phí cần thiết như phí quản lý, dịch vụ. Đặc biệt là Airbnb khi là một khởi nghiệp kỳ lân với rất nhiều nguồn tiền đầu tư, việc giảm phí để chiếm thị phần trước là một chiến lược khá phổ biến. Thế nhưng sau nhiều năm, họ phải bắt đầu lấy phí thật để kiếm được lợi nhuận cho các nhà đầu tư. Tương tự như vậy, những người cho thuê trước đó sẽ tự dọn dẹp phòng, quản lý tất cả mọi thứ mà không lấy phí lao động. Nhưng càng làm lâu dài, việc đó sẽ càng khó và họ cần phải thuê nhân viên dọn dẹp cho tiện. Phí vì thế mà tăng lên.</p>
+
+    <p>Không những thế, Airbnb còn có nhiều bất lợi hơn so với khách sạn vì khi các khách sạn có thể giảm thiểu các chi phí dịch vụ khách hàng này vì họ phục vụ nhiều phòng cùng một lúc, có đội bảo trì, dọn dẹp, v.v. tại chỗ với quy trình đào tạo nhất quán, Airbnb phải hợp đồng với nhiều nơi để phục vụ nhiều địa điểm khác nhau. Kết quả là chi phí đắt đỏ hơn, dịch vụ ít chuyên nghiệp và nhất quán hơn so với dịch vụ trong khách sạn.</p>
+
+    <p><b>Hậu quả nặng nề là Airbnb mất đề xuất giá trị chính của họ: rẻ hơn khách sạn.</b></p>
+
+    <h3>Vấn đề #2: Mất đi sự tin cậy của khách hàng</h3>
+    
+    <p>Một trong những đổi mới mình giải thích trong phần trên là việc Airbnb giúp xây dựng niềm tin cho khách hàng khi thuê phòng từ người lạ. Tuy nhiên khi họ mở rộng quy mô từ 100.000 phòng ban đầu, tới hơn 7 triệu phòng vào thời điểm hiện tại, hệ thống này bắt đầu lung lay.</p>
+
+    <ul>
+      <li><strong>Lạm phát điểm đánh giá:</strong> Hầu như mọi phòng đăng trên Airbnb giờ đều được đánh giá 4.5+ sao trở lên và khách hàng không còn phân biệt được phòng tốt hay không tốt nữa.</li>
+      <li><strong>Thay đổi mồi:</strong> Nhiều ảnh phòng chụp từ 5 năm trước, vẫn được sử dụng và khác hẳn với phòng thực sự trong hiện tại.</li>
+      <li><strong>Quảng cáo sai:</strong> nhiều chủ nhà quảng cáo "quá" lên như "phòng có tầm nhìn biển" nhưng khi khách đến nơi nhìn ra cửa sổ chỉ thấy một dải biển màu xanh bé tí.</li>
+      <li><strong>Yêu cầu quá đáng của chủ nhà (không được nói rõ ràng khi khách đặt phòng):</strong> Để giảm chi phí dọn dẹp, nhiều chủ nhà đòi hỏi khách phải "vứt rác, tháo ga giường, bật máy rửa chén trước khi đi, v.v." khiến cho việc thuê phòng giống như là bạn đi làm thuê cho người khác vậy.</li>
+    </ul>
+
+    <p>Với số lượng phòng lên tới nhiều triệu lượt đăng, Airbnb không thể xác minh chất lượng tốt như trước nữa. Và nền tảng trở nên ồn ào, nhiều rủi ro hơn. Kết quả là ngay cả khi bạn tìm được một phòng với giá tốt trên Airbnb, chất lượng và trải nghiệm không còn đáng tin nữa. Nó giống như chơi một canh bạc vậy.</p>
+
+    <p>Trong khi đó với Marriott, Hilton và các chuỗi khách sạn khác, bạn biết chính xác bạn sẽ nhận được gì và chất lượng như thế nào.</p>
+
+    <h3>Vấn đề #3: Chuyên nghiệp hóa quá đà làm mất đi cái duyên của phòng thuê</h3>
+    
+    <p>Ban đầu, Airbnb đầy những nơi ở thú vị: Chủ nhà là một nghệ sĩ địa phương, căn hộ có cá tính, ở các vị trí độc lạ, v.v. Nhưng hiện tại, phần lớn các phòng đăng trên Airbnb được sở hữu bởi các nhà thầu chuyên nghiệp quản lý nhiều bất động sản cùng lúc. Theo thông số, khoảng 60% lượng phòng trên Airbnb ở nhiều thành phố được quản lý bởi chủ nhà với nhiều phòng để kinh doanh. Một số chủ nhà có thể quản lý tới hơn 50 phòng / địa điểm một lúc.</p>
+    <img src="article9/9.5.jpg">
+    <p>Để hoạt động hiệu quả hơn, những chủ nhà này sẽ mua hoặc thuê nhiều phòng / nhà / bất động sản, trang bị chúng giống hệt nhau, thuê cùng một dịch vụ dọn dẹp, sử dụng chatbot để nhắn tin tự động cho khách thuê, không bao giờ gặp mặt khách mà chỉ dựa vào giao tiếp trên ứng dụng Airbnb.</p>
+
+    <p>Bạn có nghe quen không? Nó y như là quản lý một khách sạn, chỉ có điều là… thủ tục với khách hàng rắc rối lằng nhằng hơn. Trải nghiệm độc đáo chân thực của địa phương không còn nữa vì thuê chỗ nào cũng có vẻ như nhau. Sự thành công của Airbnb, trớ trêu thay, thu hút các nhà kinh doanh chuyên nghiệp và kết quả là <b>Airbnb trở thành phiên bản nhạt nhẽo hơn, đắt hơn của những gì họ hứa hẹn ban đầu</b>.</p>
+
+    <p>Vấn đề này không phải là chỉ riêng Airbnb trải qua, nó cũng là một vấn đề mà nhiều nền tảng công nghệ "kỳ lân" đi qua:</p>
+    <ul>
+      <li>Nền tảng bán hàng thủ công Etsy những năm trở lại tràn ngập toàn hàng sản xuất từ Trung Quốc</li>
+      <li>Youtube khi mới bắt đầu là nền tảng cho các video chân thực làm bởi những cá nhân có câu chuyện đời thường độc đáo, giờ tràn ngập những công ty phát triển nội dung chuyên nghiệp.</li>
+    </ul>
+
+    <p><b>Đây là một nghịch lý của mô hình nền tảng</b>: Điều khiến các nền tảng đặc biệt ban đầu thường sẽ dần bị phá vỡ khi quy mô tăng nhanh. Các nền tảng này một lúc nào đó sẽ mất đi cái duyên ban đầu của chúng, và trở thành thứ mà nó được phát minh ra để phá vỡ.</p>
+
+    <h3>Vấn đề #4: Các thành phố đứng dậy phản kháng và thay đổi quy định cho thuê</h3>
+    
+    <p>Vì sự bùng nổ của các nhà đầu tư chuyên nghiệp mua phòng và biến chúng thành phòng cho thuê trên Airbnb, nhiều người dân thành phố bắt đầu cảm thấy cuộc sống của họ thay đổi: tiếng ồn tăng vọt, giá cho thuê nhà xung quanh cho cư dân cũng tăng vì ít chỗ thuê cho người dân ở bình thường, mối lo ngại cho an toàn của khu phố cũng tăng vì có thêm nhiều người lạ tới ở, v.v.</p>
+
+    <p>Công chức thành phố bắt đầu phản kháng với nhiều quy định mới như yêu cầu đăng ký giấy phép cho thuê Airbnb, giới hạn số ngày thuê mà chủ trọ có thể đăng mỗi năm, cấm thuê ở một số khu vực nhất định, v.v. Airbnb cũng đấu tranh chống lại những quy định mới này một cách quyết liệt với nhiều vận động hành lang, chính trị. Sự đối đầu căng thẳng giữa hai bên: Airbnb và chính phủ địa phương sẽ tiếp tục và ảnh hưởng tới khả năng phát triển của Airbnb ở nhiều thành phố.</p>
+
+    <h2>Kết</h2>
+    
+    <p>Bài viết lần này đi sâu hơn vào cách kết hợp cái cũ và áp dụng vào phân khúc mới để sáng tạo ra sản phẩm mới thành công, nhưng cũng phân tích rõ thành công đó không phải là cố định. Khi một công ty mở rộng quy mô hoạt động, việc thay đổi hướng đi và đề xuất giá trị (value proposition) là không thể tránh khỏi.</p>
+
+    <p>Trước khi kết thúc bài viết này, mình muốn giới thiệu thêm một framework / khái niệm nữa mình thường dùng khi phân tích chiến lược: Ma trận Ansoff. Đây là một công cụ thường được sử dụng để phân tích chiến lược phát triển kinh doanh dựa trên hai yếu tố chính: thị trường (phân khúc) và sản phẩm. Nhưng mình cũng hay dùng nó để phân tích những chiến lược cho một khởi nghiệp nhảy vào thị trường đã bão hoà.</p>
+
+    <p>Là một công ty mới, bạn có thể có 4 chiến lược như sau:</p>
+    <img src="article9/9.6.jpg">
+    <p>Chiến lược thứ nhất thường được áp dụng khi thị trường chưa bão hoà và có nhiều cơ hội cho tay chơi mới. Chiến lược 2 và 3 là khá phổ biến vì nó tập trung vào phát triển cái mới nhưng chỉ trên một trục chiến lược. Chiến lược 4 là khó nhất và thường là nơi mà nhiều công ty kỳ lân công nghệ khi mới ra đời tập trung vào.</p>
+
+    <p>Một framework khá đơn giản nhưng mình nghĩ là khá hữu dụng trong phân tích chiến lược kinh doanh.</p>
+  </div>
+</body>
+</html>

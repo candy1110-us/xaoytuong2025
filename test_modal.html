@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background: red;
+  z-index: 10;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: white;
+  padding: 50px;
+}
+</style>
+</head>
+<body>
+<div class="logo">LOGO</div>
+<button onclick="document.getElementById('testModal').classList.add('show')">Open Modal</button>
+<div id="testModal" class="modal">
+  <div class="modal-content">
+    <p>Modal Content</p>
+    <button onclick="document.getElementById('testModal').classList.remove('show')">Close</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>144 Xu Hình</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'HmtRegular';
+      src: url('HmtRegular-WRrv.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BeVietnamPro';
+      src: url('Be_Vietnam_Pro/BeVietnamPro-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    body {
+      font-family: 'BeVietnamPro', sans-serif;
+      background-color: #ecebe4;
+      background-image: url('data:image/svg+xml;utf8,<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="1" fill="%23d2d1c7"/></svg>');
+      background-size: 28px 28px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      background: #4db8d8;
+      width: 50vh;
+      height: 50vh;
+      top: 20%;
+      left: -10vh;
+      animation: float 6s ease-in-out infinite;
+    }
+    body::after {
+      background: #ff8c42;
+      width: 150px;
+      height: 150px;
+      bottom: 15%;
+      right: 8%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .site-title {
+      position: fixed;
+      top: 85px;
+      left: 20px;
+      z-index: 100;
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      width: 60px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-family: 'HmtRegular', 'BeVietnamPro', sans-serif;
+      font-size: 5rem;
+      color: #e67326;
+      margin-bottom: 24px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      text-align: center;
+      font-family: 'BeVietnamPro', sans-serif;
+      font-size: 1.3rem;
+      color: #555555;
+      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+    .button-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #4db8d8;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: 'BeVietnamPro', sans-serif;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #3ca5c3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .btn-secondary {
+      background-color: #e67326;
+    }
+    .btn-secondary:hover {
+      background-color: #d5631e;
+    }
+    .coin-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+      margin-bottom: 48px;
+    }
+    .coin-image {
+      max-width: 100%;
+      max-height: 500px;
+      opacity: 0;
+      transform: scale(0.8) rotate(-10deg);
+      transition: all 0.5s cubic-bezier(.22,1,.36,1);
+    }
+    .coin-image.show {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">
+    <img src="images/mefn.gif" alt="Logo">
+  </a>
+  <div class="site-title">Xào</div>
+
+  <div class="container">
+    <h1>144 Xu Hình</h1>
+    <p class="subtitle">Chọn xu ngẫu nhiên khi luyện tư duy liên tưởng</p>
+
+    <div class="button-container">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <label for="coinCount" style="font-size: 1.1rem; color: #555; font-weight: 600;">Số lượng xu:</label>
+        <input type="number" id="coinCount" min="1" max="10" value="1" style="width: 70px; padding: 8px 12px; font-size: 1rem; border: 2px solid #ccc; border-radius: 8px; font-family: 'BeVietnamPro', sans-serif;">
+      </div>
+      <button class="btn btn-secondary" onclick="pickRandomCoins()">Chọn xu ngẫu nhiên</button>
+      <a href="images1/coins/xu.pdf" target="_blank" class="btn">Tải PDF file</a>
+    </div>
+
+    <div id="coinsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 48px; justify-items: center;">
+    </div>
+  </div>
+
+  <script>
+    function pickRandomCoins() {
+      const count = parseInt(document.getElementById('coinCount').value) || 1;
+      const container = document.getElementById('coinsContainer');
+
+      // Clear previous coins with fade out
+      const existingCoins = container.querySelectorAll('.coin-image');
+      existingCoins.forEach(coin => coin.classList.remove('show'));
+
+      setTimeout(() => {
+        container.innerHTML = '';
+
+        // Generate unique random numbers
+        const usedNumbers = new Set();
+        const coinNumbers = [];
+
+        while (coinNumbers.length < Math.min(count, 288)) {
+          const randomNum = Math.floor(Math.random() * 288) + 1;
+          if (!usedNumbers.has(randomNum)) {
+            usedNumbers.add(randomNum);
+            coinNumbers.push(randomNum);
+          }
+        }
+
+        // Create and display coins
+        coinNumbers.forEach((num, index) => {
+          const coinWrapper = document.createElement('div');
+          const coinImage = document.createElement('img');
+          coinImage.src = `images1/coins/${num}.png`;
+          coinImage.className = 'coin-image';
+          coinImage.alt = `Xu ${num}`;
+
+          coinWrapper.appendChild(coinImage);
+          container.appendChild(coinWrapper);
+
+          // Stagger animation
+          setTimeout(() => {
+            coinImage.classList.add('show');
+          }, index * 100);
+        });
+      }, 300);
+    }
+  </script>
+</body>
+</html>
